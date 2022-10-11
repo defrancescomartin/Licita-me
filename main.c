@@ -4,21 +4,24 @@
 int Check_Rut(char rut[])
 {
 char ver[12] = "43298765432";
-int dv, dc, total, x = 0;
+int dv, dc, total = 0, x = 0;
+int val_a = 0, val_b = 0;
 
-        if (strlen(rut) != 11)
+        if (strlen(rut) != 12)
         {
-                return (-1);
+            return (-1);
         }
-        dc = (int)rut[10];
+        dc = rut[11] - '0';
 
         while (x <= 10)
         {
-                total += ((int)rut[x] * (int)ver[x]);
-		printf("total %d is: %d\n", x, total);
-                x++;
+			val_a = rut[x] - '0';
+			val_b = ver[x] - '0';
+            total += (val_a * val_b);
+		 	printf("total %d is: %d\n", x, total);
+            x++;
         }
-	printf("total is %d\n", total);
+	    printf("total is %d\n", total);
         dv = 11 - (total % 11);
         if (dv == 11)
         {
@@ -46,7 +49,7 @@ int dv, dc, total, x = 0;
  **/
 int main(void)
 {
-char rut[12] = "21100320017";
+char rut[12] = "211003420017";
 int a;
 
 	a = Check_Rut(rut);
