@@ -10,11 +10,11 @@ int dv, dc, total, x = 0;
         {
                 return (-1);
         }
-        dc = rut[10];
+        dc = (int)rut[10];
 
         while (x <= 10)
         {
-                total += (rut[x] * ver[x]);
+                total += ((int)rut[x] * (int)ver[x]);
 		printf("total %d is: %d\n", x, total);
                 x++;
         }
