@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_login import login_required
 
 app=Flask(__name__)
 
