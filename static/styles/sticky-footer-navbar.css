@@ -1,5 +1,5 @@
 main > .container {
-  padding: 300px 15px 0;
+  padding: 0px 15px 0;
   text-align: center;
 }
 .bd-placeholder-img {
@@ -18,7 +18,7 @@ main > .container {
 
 .b-example-divider {
   height: 3rem;
-  background-color: rgba(0, 0, 0, .1);
+  background-color: rgba(0, 0, 0, .15);
   border: solid rgba(0, 0, 0, .15);
   border-width: 1px 0;
   box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
@@ -52,12 +52,33 @@ main > .container {
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
 }
-header > .d-flex {
+form > .d-flex {
   width: 200px;
   column-gap: 100px;
   margin-left: 10px;
+  display: flexbox;
+  justify-content: space-between;
 }
 .buttons2 {
   color: #fff;
   border-color: #fff;
+}
+.footer {
+  background-color: #661020;
+  text-align: center;
+  color: #fff;
+}
+.container .text {
+  color: #fff;
+}
+.imagelogo {
+  text-align: center;
+  margin-top: 125px;
+  margin-bottom: 0px;
+}
+.flex-shrink-0 {
+  margin-top: 0;
+}
+header {
+  color: #661020;
 }
