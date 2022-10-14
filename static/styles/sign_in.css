@@ -93,4 +93,11 @@ body {
   }
   .register {
     margin-top: 35px;
+    color: #661020;
+  }
+  .registerlink {
+    color: #661020;
+  }
+  .registerlink:hover {
+    color: #66102091;
   }
