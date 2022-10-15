@@ -76,6 +76,9 @@ form > .d-flex {
   font-size: 25px;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
+.container .text {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
 .imagelogo {
   text-align: center;
   margin-top: 125px;
@@ -88,9 +91,6 @@ form > .d-flex {
   display: flex;
   width: 150px;
   height: 50px;
-}
-.buttons2{
-  justify-content: space-between;
 }
 .btn-outline-success:hover {
   background-color: #661020;
