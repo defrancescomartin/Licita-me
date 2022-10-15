@@ -1,3 +1,7 @@
+body {
+  background-color: #66102030;
+  padding-top: 115px;
+}
 main > .container {
   padding: 0px 15px 0;
   text-align: center;
@@ -57,7 +61,6 @@ form > .d-flex {
   column-gap: 100px;
   margin-left: 10px;
   display: flexbox;
-  justify-content: space-between;
 }
 .buttons2 {
   color: #fff;
@@ -68,8 +71,10 @@ form > .d-flex {
   text-align: center;
   color: #fff;
 }
-.container .text {
-  color: #fff;
+.container .lead {
+  color: #29060d;
+  font-size: 25px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .imagelogo {
   text-align: center;
@@ -79,6 +84,19 @@ form > .d-flex {
 .flex-shrink-0 {
   margin-top: 0;
 }
-header {
-  color: #661020;
+.headerlogo {
+  display: flex;
+  width: 150px;
+  height: 50px;
+}
+.buttons2{
+  justify-content: space-between;
+}
+.btn-outline-success:hover {
+  background-color: #661020;
+  border-color: #fff;
+}
+.buttons2:active {
+  background-color: #661020;
+  border-color: #fff;
 }
