@@ -90,7 +90,6 @@ form > .d-flex {
 .headerlogo {
   display: flex;
   width: 150px;
-  height: 50px;
 }
 .btn-outline-success:hover {
   background-color: #661020;
