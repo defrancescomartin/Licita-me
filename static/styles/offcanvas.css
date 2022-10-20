@@ -132,3 +132,6 @@ a:hover {
 nav:hover {
   color: #66102091;
 }
+.btn-request:hover {
+  background-color: #000000;
+}
