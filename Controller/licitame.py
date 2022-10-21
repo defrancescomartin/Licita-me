@@ -38,16 +38,7 @@ def index():
 def signin():
     return render_template('sign_in.html')
 
-@app.route('/signup', strict_slashes=False)
-def signup():
-        return render_template('sign_up.html')
-
-@app.route('/home', strict_slashes=False)
-@login_required
-def home():
-    return render_template ('home.html')
-
-@app.route('/signup', strict_slashes=False)
+@app.route('/signup1', strict_slashes=False)
 def sign_up1():
     return render_template ('sign_up.html')
 
@@ -58,6 +49,11 @@ def sign_up2():
 @app.route('/signup3', strict_slashes=False)
 def sign_up3():
     return render_template ('signup3.html')
+
+@app.route('/home', strict_slashes=False)
+@login_required
+def home():
+    return render_template ('home.html')
 
 @app.route('/editclient', strict_slashes=False)
 @login_required
