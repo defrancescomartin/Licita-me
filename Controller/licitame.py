@@ -26,9 +26,9 @@ bcrypt = Bcrypt(app)
 
 # This part of login manager will allow handle things on login
 # Loading users from credentials
-login_manager = LoginManager()
-login_manager.init_app(app)
-login_manager.login_view = 'signin'
+#login_manager = LoginManager()
+#login_manager.init_app(app)
+#login_manager.login_view = 'signin'
 
 @app.route('/', strict_slashes=False)
 def index():
