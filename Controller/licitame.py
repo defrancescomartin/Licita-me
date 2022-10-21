@@ -52,15 +52,15 @@ def home():
     return render_template ('home.html')
 
 @app.route('/signup')
-def sign_up():
+def sign_up1():
     return render_template ('sign_up.html')
 
 @app.route('/signup2')
-def sign_up():
+def sign_up2():
     return render_template ('signup2.html')
 
 @app.route('/signup3')
-def sign_up():
+def sign_up3():
     return render_template ('signup3.html')
 
 @app.route('/editclient')
