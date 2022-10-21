@@ -51,7 +51,7 @@ def sign_up3():
     return render_template ('sign_up3.html')
 
 @app.route('/home', strict_slashes=False)
-@login_required
+#@login_required
 def home():
     return render_template ('home.html')
 
