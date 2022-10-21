@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Licita-Me</title>
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="{{ url_for('View', filename='css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="../View/csscss/bootstrap.min.css">
 
-    <link href="{{ url_for('View', filename='css/sticky-footer-navbar.css') }}" rel="stylesheet">
+    <link href="../View/css/sticky-footer-navbar.css" rel="stylesheet">
   </head>
   <body class="d-flex flex-column h-100">
 
 <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-	    <img class="headerlogo" src="{{ url_for('View', filename='images/logo3prueba.png') }}" alt="">
+	    <img class="headerlogo" src="../View/images/logo3prueba.png" alt="">
     <div class="box">
           <a href="{{ url_for('signin') }}">
 	        <button class="btn btn-outline-success buttons2" type="button">Sign in</button>
@@ -28,7 +28,7 @@
   </nav>
 </header>
 <div class="imagelogo">
-	<img src="{{ url_for('View', filename='images/logo11prueba.png') }}" width="500">
+	<img src="../View/images/logo11prueba.png" width="500">
 </div>
 
 <main class="flex-shrink-0">
@@ -45,7 +45,7 @@
 
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="{{ url_for('View', filename='js/bootstrap.bundle.min.js') }}"></script>
+<script src="../View/js/bootstrap.bundle.min.js"></script>
 
   </body>
 </html>
