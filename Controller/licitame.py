@@ -55,6 +55,14 @@ def home():
 def sign_up():
     return render_template ('sign_up.html')
 
+@app.route('/signup2')
+def sign_up():
+    return render_template ('signup2.html')
+
+@app.route('/signup3')
+def sign_up():
+    return render_template ('signup3.html')
+
 @app.route('/editclient')
 @login_required
 def edit_client():
