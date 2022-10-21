@@ -56,7 +56,7 @@ def home():
     return render_template ('home.html')
 
 @app.route('/editclient', strict_slashes=False)
-@login_required
+#@login_required
 def edit_client():
     return 'edit client'
 
