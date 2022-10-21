@@ -13,14 +13,15 @@ from wtforms.validators import InputRequired, Length, ValidationError
 
 
 app = Flask(__name__)
+#Config connection from licitame app file to LicitaMeDB database
+app.config['SQLAlchemy_DATABASE_URI'] ='mysql://licitame:Password-2022@localhost/LicitaMeDB'
+# Adding a secret key
+app.config['SECRET_KEY']='Pass2022'
 # Create the database instance
 db  = SQLAlchemy(app)
 # Use bcrypt so i can hash the passwords
 bcrypt = Bcrypt(app)
-# Connect my application file to my database
-app.config['SQLAlchemy_DATABASE_URI'] ='mysql://licitame:Password-2022@localhost/LicitaMeDB'
-# Adding a secret key
-app.config['SECRET_KEY']='Pass2022'
+
 
 # This part of login manager will allow me
 # handle things on login
