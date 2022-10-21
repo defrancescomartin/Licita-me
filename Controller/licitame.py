@@ -38,17 +38,17 @@ def index():
 def signin():
     return render_template('sign_in.html')
 
-@app.route('/signup1', strict_slashes=False)
-def sign_up1():
+@app.route('/sign_up', strict_slashes=False)
+def sign_up():
     return render_template ('sign_up.html')
 
-@app.route('/signup2', strict_slashes=False)
+@app.route('/sign_up2', strict_slashes=False)
 def sign_up2():
-    return render_template ('signup2.html')
+    return render_template ('sign_up2.html')
 
-@app.route('/signup3', strict_slashes=False)
+@app.route('/sign_up3', strict_slashes=False)
 def sign_up3():
-    return render_template ('signup3.html')
+    return render_template ('sign_up3.html')
 
 @app.route('/home', strict_slashes=False)
 @login_required

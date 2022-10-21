@@ -8,7 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../View/css/signup.css">
+    <link rel="stylesheet" href="View/css/signup.css">
   </head>
   <body>
     <section class="vh-100" style="background-color: #66102030;">
@@ -20,19 +20,19 @@
                   <span class="navbar-toggler-icon"></span>
                 </button>
                 <a class="navbar-brand" href="#!">
-                  <img src="../View/images/logosinfondonegro.png" alt="Logo sin fondo" width="150px">
+                  <img src="View/images/logosinfondonegro.png" alt="Logo sin fondo" width="150px">
                 </a>
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul class="navbar-nav mr-auto mt-2 mt-md-0">
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('signup1') }}">Step 1</a>
+                  <a class="nav-link" href="{{ url_for('sign_up') }}">Step 1</a>
                 </li>
 				<li class="nav-item active">
-                  <a class="nav-link" href="{{ url_for('signup2') }}">Step 2<span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="#!">Step 2<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('signup3') }}">Step 3</a>
+                  <a class="nav-link" href="{{ url_for('sign_up3') }}">Step 3</a>
                 </li>
               </ul>
             </div>
