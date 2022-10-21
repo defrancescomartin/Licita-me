@@ -13,8 +13,10 @@ from wtforms.validators import InputRequired, Length, ValidationError
 
 
 app = Flask(__name__)
-#Config connection from licitame app file to LicitaMeDB database
+# Config connection from licitame app file to LicitaMeDB database
 app.config['SQLAlchemy_DATABASE_URI'] ='mysql://licitame:Password-2022@localhost/LicitaMeDB'
+# Turn off this warning
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Adding a secret key
 app.config['SECRET_KEY']='Pass2022'
 # Create the database instance
