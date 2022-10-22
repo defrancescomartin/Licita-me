@@ -38,14 +38,13 @@ class Company(db.Model):
     RUT         = db.Column(db.Integer, nullable=False, unique=True)
     RSocial     = db.Column(db.String(45), nullable=False)
 
-class User(db.Model,UserMixin):
+class User(db.Model, UserMixin):
     __tablename__ = 'User'
     # The id column is the user's identity column
     UserId       = db.Column(db.Integer, primary_key=True)
     CustomerName = db.Column(db.String(45), nullable=False, unique=True)
     Password     = db.Column(db.String(80), nullable=False)
     CompanyId    = db.Column(db.Integer, db.ForeignKey("Company.CompanyId"))
-    Company      = db.relationship("Company", backref=backref("Company", uselist=False))
     Email        = db.Column(db.String(45), nullable=False, unique=True)
 
 class RegisterForm(FlaskForm):
