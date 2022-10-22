@@ -130,7 +130,7 @@ def validate_username(self, CustomerName):
 
 class SigninForm(FlaskForm):
     CustomerName = StringField(validators=[InputRequired(),
-                                     Length(min=4, max=45)],
+                                     Length(min=3, max=45)],
                                      render_kw={"placeholder": "CustomerName"})
     Password = PasswordField(validators=[InputRequired(),
                                      Length(min=8, max=20)],
