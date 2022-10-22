@@ -33,8 +33,6 @@ CREATE TABLE `LicitaMeDB`.`User`
  `CompanyId`        int NOT NULL ,
  `CustomerName`     varchar(25) NOT NULL ,
  `Phone`            varchar(20) NULL ,
- `CreationDate`     datetime NOT NULL ,
- `ModificationDate` datetime NOT NULL ,
  `Email`            varchar(45) NULL ,
  `Birthdate`        date NULL ,
  `Address`          varchar(45) NULL ,
