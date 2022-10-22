@@ -45,7 +45,7 @@ class Company(db.Model):
 class User(db.Model, UserMixin):
     __tablename__ = 'User'
     # The id column is the user's identity column
-    UserId       = db.Column(db.Integer, primary_key=True)
+    id       = db.Column(db.Integer, primary_key=True)
     CustomerName = db.Column(db.String(45), nullable=False, unique=True)
     Password     = db.Column(db.String(80), nullable=False)
     CompanyId    = db.Column(db.Integer, db.ForeignKey("Company.CompanyId"))
