@@ -161,8 +161,12 @@ def sign_up():
         hashed_password = bcrypt.generate_password_hash(form.Password.data)
         new_company = Company(CompanyName=form.CompanyName.data, RUT=form.RUT.data, RSocial=form.RSocial.data)
         new_user = User(CustomerName=form.CustomerName.data, Password=hashed_password, Email=form.Email.data)
-        db.session.add_all([new_company, new_user])
-        db.session.commit()# Validate the changes
+        db.session.add(new_company)
+        db.session.commit()
+        company = Company.query.filter_by(RUT=form.RUT.data).all()
+        new_user = User(CompanyId=company.CompanyId, CustomerName=form.CustomerName.data, Password=hashed_password, Email=form.Email.data)
+        db.session.add(new_user)
+        db.session.commit()
         return redirect(url_for('signin'))
         #each time the form is valid we will create
         #immediately a hashed version of this mdps (so that the mdps is encrypted)
