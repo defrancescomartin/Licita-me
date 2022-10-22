@@ -56,7 +56,7 @@ CREATE TABLE `LicitaMeDB`.`Request`
  `id`             int NOT NULL ,
  `CompanyId`      int NOT NULL ,
  `CurrencyCode`   int NULL ,
- `StaringDate`    date NULL ,
+ `StartingDate`    date NULL ,
  `FinishDate`     date NULL ,
  `Category`       varchar(45) NULL ,
  `Description`    mediumtext NULL ,
