@@ -227,7 +227,7 @@ def logout():
 def edit_client():
     return 'edit client'
 
-@app.route('/createrequest', strict_slashes=False)
+@app.route('/create_request', strict_slashes=False)
 @login_required
 def create_request():
     return render_template ('request.html')
