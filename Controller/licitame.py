@@ -55,7 +55,7 @@ class RegisterForm(FlaskForm):
     #Company
     CompanyName = StringField(validators=[
                            InputRequired(),
-                           Length(min=4, max=45)],
+                           Length(min=2, max=45)],
                            render_kw={"placeholder": "CompanyName"})
     RUT = StringField(validators=[
                            InputRequired(),
@@ -84,7 +84,7 @@ class RegisterForm(FlaskForm):
     #User
     CustomerName = StringField(validators=[
                            InputRequired(),
-                           Length(min=4, max=45)],
+                           Length(min=3, max=45)],
                            render_kw={"placeholder": "CustomerName"})
     Phone = StringField(validators=[
                            InputRequired(),
