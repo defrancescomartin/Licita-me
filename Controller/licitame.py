@@ -232,11 +232,10 @@ def edit_client():
 def create_request():
     return render_template ('request.html')
 
-@app.route('/createbid', strict_slashes=False)
+@app.route('/create_bid', strict_slashes=False)
 @login_required
 def create_bid():
-    return 'Create bid'
-    #return render_template ('bid.html')
+    return render_template ('bid.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port = 5000, debug = True)
