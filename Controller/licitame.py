@@ -159,7 +159,7 @@ def sign_up():
         new_user = User(CustomerName=form.CustomerName.data, Password=hashed_password)
         db.session.add_all([new_company, new_user])
         db.session.commit()# Validate the changes
-        return redirect(url_for('login'))
+        return redirect(url_for('signin'))
         #each time the form is valid we will create
         #immediately a hashed version of this mdps (so that the mdps is encrypted)
         #In order to have a secure registration process
@@ -175,7 +175,7 @@ def sign_up3():
     return render_template ('sign_up3.html')
 
 @app.route('/home', strict_slashes=False)
-#@login_required
+@login_required
 def home():
     return render_template ('home.html')
 
