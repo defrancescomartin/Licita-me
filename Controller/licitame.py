@@ -163,7 +163,7 @@ def sign_up():
         new_user = User(CustomerName=form.CustomerName.data, Password=hashed_password, Email=form.Email.data)
         db.session.add(new_company)
         db.session.commit()
-        company = Company.query.filter_by(RUT=form.RUT.data).all()
+        company = Company.query.filter_by(RUT=form.RUT.data).first()
         new_user = User(CompanyId=company.CompanyId, CustomerName=form.CustomerName.data, Password=hashed_password, Email=form.Email.data)
         db.session.add(new_user)
         db.session.commit()
