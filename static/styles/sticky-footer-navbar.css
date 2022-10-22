@@ -99,3 +99,6 @@ form > .d-flex {
   background-color: #661020;
   border-color: #fff;
 }
+.btn-logo {
+  border-radius: 0%;
+}
