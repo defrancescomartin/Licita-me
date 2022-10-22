@@ -11,7 +11,7 @@ GRANT SELECT ON performance_schema . * TO 'licitame'@'localhost';
 
 CREATE TABLE `LicitaMeDB`.`Company`
 (
- `CompanyId`   int NOT NULL ,
+ `CompanyId`   int NOT NULL AUTO_INCREMENT ,
  `CompanyName` varchar(45) NOT NULL ,
  `RUT`         varchar(12) NOT NULL ,
  `RSocial`     varchar(45) NULL ,
@@ -29,7 +29,7 @@ PRIMARY KEY (`CompanyId`)
 
 CREATE TABLE `LicitaMeDB`.`User`
 (
- `id`               int NOT NULL ,
+ `id`               int NOT NULL AUTO_INCREMENT ,
  `CompanyId`        int NOT NULL ,
  `CustomerName`     varchar(25) NOT NULL ,
  `Phone`            varchar(20) NULL ,
@@ -51,7 +51,7 @@ CONSTRAINT `FK_1` FOREIGN KEY `FK_2` (`CompanyId`) REFERENCES `LicitaMeDB`.`Comp
 
 CREATE TABLE `LicitaMeDB`.`Request`
 (
- `RequestId`      int NOT NULL ,
+ `RequestId`      int NOT NULL AUTO_INCREMENT ,
  `RequestNumber`  varchar(10) NOT NULL ,
  `id`             int NOT NULL ,
  `CompanyId`      int NOT NULL ,
@@ -76,7 +76,7 @@ CONSTRAINT `FK_5` FOREIGN KEY `FK_3` (`id`) REFERENCES `LicitaMeDB`.`User` (`id`
 
 CREATE TABLE `LicitaMeDB`.`Bid`
 (
- `BidId`        int NOT NULL ,
+ `BidId`        int NOT NULL AUTO_INCREMENT ,
  `BidNumber`    varchar(10) NOT NULL ,
  `id`           int NOT NULL ,
  `RequestId`    int NULL ,
