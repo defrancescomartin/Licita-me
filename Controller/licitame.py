@@ -152,7 +152,7 @@ def sign_up():
     # The code for registration
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.Password.data)
-    new_company = Company(CompanyName=form.CompanyName.data, RUT=form.RUT.data)
+        new_company = Company(CompanyName=form.CompanyName.data, RUT=form.RUT.data)
         new_user = User(CustomerName=form.CustomerName.data, Password=hashed_password)
         db.session.add_all([new_company, new_user])
         db.session.commit()# Validate the changes
