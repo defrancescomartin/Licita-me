@@ -230,8 +230,7 @@ def edit_client():
 @app.route('/createrequest', strict_slashes=False)
 @login_required
 def create_request():
-    return 'Create request'
-    #return render_template ('request.html')
+    return render_template ('request.html')
 
 @app.route('/createbid', strict_slashes=False)
 @login_required
