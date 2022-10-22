@@ -31,6 +31,7 @@ login_manager.init_app(app)
 login_manager.login_view = 'signin'
 
 class Company(db.Model):
+    __tablename__ = 'Company'
     # The id column is the Company's identity column
     CompanyId   = db.Column(db.Integer, primary_key=True)
     CompanyName = db.Column(db.String(20), nullable=False, unique=True)
@@ -38,11 +39,13 @@ class Company(db.Model):
     RSocial     = db.Column(db.String(45), nullable=False)
 
 class User(db.Model,UserMixin):
+    __tablename__ = 'User'
     # The id column is the user's identity column
     UserId       = db.Column(db.Integer, primary_key=True)
     CustomerName = db.Column(db.String(45), nullable=False, unique=True)
     Password     = db.Column(db.String(80), nullable=False)
-    CompanyId    = db.Column(db.Integer, ForeignKey("Company.CompanyId"))
+    CompanyId    = db.Column(db.Integer, db.ForeignKey("Company.CompanyId"))
+    Company      = db.relationship("Company", backref=backref("Company", uselist=False))
     Email        = db.Column(db.String(45), nullable=False, unique=True)
 
 class RegisterForm(FlaskForm):
