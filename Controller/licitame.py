@@ -39,8 +39,8 @@ class Company(db.Model):
     # The id column is the Company's identity column
     CompanyId   = db.Column(db.Integer, primary_key=True)
     CompanyName = db.Column(db.String(20), nullable=False, unique=True)
-    RUT         = db.Column(db.Integer, nullable=False, unique=True)
-    RSocial     = db.Column(db.String(45), nullable=False)
+    RUT         = db.Column(db.String(12), nullable=False, unique=True)
+    RSocial     = db.Column(db.String(45), nullable=True)
 
 class User(db.Model, UserMixin):
     __tablename__ = 'User'
