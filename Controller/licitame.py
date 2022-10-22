@@ -51,6 +51,27 @@ class User(db.Model, UserMixin):
     CompanyId    = db.Column(db.Integer, db.ForeignKey("Company.CompanyId"))
     Email        = db.Column(db.String(45), nullable=False, unique=True)
 
+class Request(db.Model):
+    __tablename__ = 'Request'
+    # The id column is the user's identity column
+    RequestId     = db.Column(db.Integer, nullable=False, primary_key=True)
+    RequestNumber = db.Column(db.String(10), nullable=False)
+    CompanyId     = db.Column(db.Integer, db.ForeignKey("Company.CompanyId"))
+    Category         = db.Column(db.String(45), nullable=False)
+    Description   = db.Column(db.Text(64000), nullable=False)
+    Title         = db.Column(db.String(45), nullable=False)
+    # Falta Id, CurrencyCode, StartingDate, FinishingDate, StatusCode, CreationDate, ModificationDate.
+
+class Bid(db.Model):
+    __tablename__ = 'Bid'
+    # The id column is the user's identity column
+    BidId     = db.Column(db.Integer, nullable=False, primary_key=True)
+    BidNumber = db.Column(db.String(10), nullable=False)
+    CompanyId     = db.Column(db.Integer, db.ForeignKey("Company.CompanyId"))
+    Category         = db.Column(db.String(45), nullable=False)
+    FileId         = db.Column(db.String(10), nullable=False)
+    StatusCode   = db.Column(db.Integer, nullable=True)
+
 class RegisterForm(FlaskForm):
     #Company
     CompanyName = StringField(validators=[
