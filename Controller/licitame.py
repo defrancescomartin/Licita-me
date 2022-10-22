@@ -30,7 +30,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'signin'
 
-class Company(db.Model,UserMixin):
+class Company(db.Model):
     # The id column is the Company's identity column
     CompanyId   = db.Column(db.Integer, primary_key=True)
     CompanyName = db.Column(db.String(20), nullable=False, unique=True)
@@ -92,9 +92,9 @@ class RegisterForm(FlaskForm):
                            InputRequired(),
                            Length(min=4, max=45)],
                            render_kw={"placeholder": "Email"})
-    Birthdate = StringField(validators=[
+    Birthdate = DateField(validators=[
                            InputRequired(),
-                           Length(min=4, max=45)],
+                           default=date.today],
                            render_kw={"placeholder": "Birthdate"})
     Address = StringField(validators=[
                            InputRequired(),
@@ -108,12 +108,12 @@ class RegisterForm(FlaskForm):
                            InputRequired(),
                            Length(min=4, max=45)],
                            render_kw={"placeholder": "City"})
-    submit = SubmitField('Register')
+    submit = SubmitField('sign_up')
 
-def validate_username(self, RUT):
-    existing_user_username = User.query.filter_by(RUT=CustomerName.data).first()
-    if existing_user_username:
-        raise ValidationError('That username already exists. Please choose a different one.')
+def add_relationship(self, RUT):
+    existing_Company_RUT = Company.query.filter_by(RUT=RUT.data).first()
+    if existing_Company_RUT:
+        raise ValidationError('That RUT already exists. Already registered? Signin please.')
 
 # The username must be unique, i.e. each name
 # User must be different
@@ -122,7 +122,7 @@ def validate_username(self, CustomerName):
     if existing_user_username:
         raise ValidationError('That username already exists. Please choose a different one.')
 
-class LoginForm(FlaskForm):
+class SigninForm(FlaskForm):
     CustomerName = StringField(validators=[InputRequired(),
                                      Length(min=4, max=45)],
                                      render_kw={"placeholder": "CustomerName"})
@@ -136,13 +136,33 @@ class LoginForm(FlaskForm):
 def index():
     return render_template('landing_page.html')
 
-@app.route('/signin',  strict_slashes=False)
+@app.route('/signin', methods=['GET', 'POST'],  strict_slashes=False)
 def signin():
-    return render_template('sign_in.html')
+	form = SigninForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(CustomerName=form.CustomerName.data).first()
+        if user:
+            if bcrypt.check_password_hash(user.password, form.password.data):
+                login_user(user)
+                return redirect(url_for('home'))
+    return render_template('sign_in.html', form=form)# I will pass this form in my html template
 
-@app.route('/sign_up', strict_slashes=False)
+@app.route('/sign_up', methods=['GET', 'POST'], strict_slashes=False)
 def sign_up():
-    return render_template ('sign_up.html')
+	form = RegisterForm()
+    # The code for registration
+    if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(form.Password.data)
+		new_company = Company(CompanyName=form.CompanyName.data, RUT=form.RUT.data)
+        new_user = User(CustomerName=form.CustomerName.data, Password=hashed_password)
+        db.session.add_all([new_company, new_user])
+        db.session.commit()# Validate the changes
+        return redirect(url_for('login'))
+        #each time the form is valid we will create
+        #immediately a hashed version of this mdps (so that the mdps is encrypted)
+        #In order to have a secure registration process
+
+    return render_template ('sign_up.html', form=form)
 
 @app.route('/sign_up2', strict_slashes=False)
 def sign_up2():
