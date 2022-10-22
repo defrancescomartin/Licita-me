@@ -93,8 +93,7 @@ class RegisterForm(FlaskForm):
                            Length(min=4, max=45)],
                            render_kw={"placeholder": "Email"})
     Birthdate = DateField(validators=[
-                           InputRequired(),
-                           default=date.today],
+                           InputRequired()],
                            render_kw={"placeholder": "Birthdate"})
     Address = StringField(validators=[
                            InputRequired(),
