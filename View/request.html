@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Licita-Me</title>
+
+
+<link href="View/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="View/css/request.css" rel="stylesheet">
+
+  </head>
+  <body class="text-center align-middle">
+
+<main class="form-request m-auto d-flex align-middle">
+ <form>
+    <img class="mb-4" src="View/images/logo11.png" alt="" width="200" height="200">
+    <h1 class="h3 mb-3 fw-normal">Create Your Request</h1>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" placeholder="Project title" required>
+    </div>
+
+    <div class="form-floating">
+         <select name="categoria" id="categoria" class="form-control" required>
+            <option value="1" selected>Categories</option>
+            <option value="2">Carpintería</option>
+            <option value="3">Electrica</option>
+            <option value="4">Balastro</option>
+            <option value="5">Ingeniería</option>
+        </select>
+    </div>
+
+    <div class="form-floating">
+    <input type="text" placeholder="Deadline" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" required/>
+    </div>
+
+    <div class="form-floating">
+      <input type="email username" class="form-control" id="floatingPassword" placeholder="Location" required>
+    </div>
+
+    <div class="comment">
+	<label for="comment">Project description:</label>
+        <textarea class="form-control" rows="10" id="comment" required>
+	</textarea>
+      </div>
+
+      <div class="form-floating">
+<input type="file" name="adjunto" accept="application/pdf, .doc, .docx" multiple required/>
+      </div>
+
+    <button class="w-100 btn btn-lg btn-primary btn-ale" type="submit">Create</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+  </form>
+</main>
+  </body>
+</html>

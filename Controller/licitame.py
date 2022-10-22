@@ -45,7 +45,7 @@ class Company(db.Model):
 class User(db.Model, UserMixin):
     __tablename__ = 'User'
     # The id column is the user's identity column
-    id       = db.Column(db.Integer, primary_key=True)
+    id           = db.Column(db.Integer, primary_key=True)
     CustomerName = db.Column(db.String(45), nullable=False, unique=True)
     Password     = db.Column(db.String(80), nullable=False)
     CompanyId    = db.Column(db.Integer, db.ForeignKey("Company.CompanyId"))
@@ -53,6 +53,30 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return f"User(id={self.id!r}, name={self.CustomerName!r}, email={self.Email!r}, company={self.CompanyId!r})"
+
+class Request(db.Model):
+    __tablename__ = 'Request'
+    # The id column is the user's identity column
+    RequestId     = db.Column(db.Integer, nullable=False, primary_key=True)
+    RequestNumber = db.Column(db.String(10), nullable=False)
+    CompanyId     = db.Column(db.Integer, db.ForeignKey("Company.CompanyId"))
+    Category      = db.Column(db.String(45), nullable=False)
+    Description   = db.Column(db.Text(64000), nullable=False)
+    Title         = db.Column(db.String(45), nullable=False)
+    # Falta Id, CurrencyCode, StartingDate, FinishingDate, StatusCode, CreationDate, ModificationDate.
+
+class Bid(db.Model):
+    __tablename__ = 'Bid'
+    # The id column is the user's identity column
+    BidId       = db.Column(db.Integer, nullable=False, primary_key=True)
+    BidNumber   = db.Column(db.String(10), nullable=False)
+    CompanyId   = db.Column(db.Integer, db.ForeignKey("Company.CompanyId"))
+    id          = db.Column(db.Integer, db.ForeignKey("User.id"))
+    RequestId   = db.Column(db.Integer, db.ForeignKey("Request.RequestId"))
+    Category    = db.Column(db.String(45), nullable=False)
+    FileId      = db.Column(db.String(10), nullable=False)
+    StatusCode  = db.Column(db.Integer, nullable=True)
+    #TotalAmount, StartingDate, FinishingDate
 
 class RegisterForm(FlaskForm):
     #Company
