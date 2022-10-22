@@ -42,7 +42,7 @@ class User(db.Model,UserMixin):
     UserId       = db.Column(db.Integer, primary_key=True)
     CustomerName = db.Column(db.String(45), nullable=False, unique=True)
     Password     = db.Column(db.String(80), nullable=False)
-    CompanyId    = db.Column(db.Integer, foreign_key=True)
+    CompanyId    = db.Column(db.Integer, ForeignKey("Company.CompanyId"))
     Email        = db.Column(db.String(45), nullable=False, unique=True)
 
 class RegisterForm(FlaskForm):
@@ -92,8 +92,9 @@ class RegisterForm(FlaskForm):
                            InputRequired(),
                            Length(min=4, max=45)],
                            render_kw={"placeholder": "Email"})
-    Birthdate = DateField(validators=[
-                           InputRequired()],
+    Birthdate = StringField(validators=[
+                           InputRequired(),
+                           Length(min=4, max=45)],
                            render_kw={"placeholder": "Birthdate"})
     Address = StringField(validators=[
                            InputRequired(),
