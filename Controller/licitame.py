@@ -31,8 +31,8 @@ login_manager.init_app(app)
 login_manager.login_view = 'signin'
 
 @login_manager.user_loader
-def load_user(user):
-    return User.query.get(id)
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 class Company(db.Model):
     __tablename__ = 'Company'
@@ -154,6 +154,7 @@ def signin():
             if bcrypt.check_password_hash(user.Password, form.Password.data):
                 login_user(user)
                 return redirect(url_for('home'))
+
     return render_template('sign_in.html', form=form)# I will pass this form in my html template
 
 @app.route('/sign_up', methods=['GET', 'POST'], strict_slashes=False)
