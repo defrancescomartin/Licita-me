@@ -35,18 +35,18 @@ class Company(db.Model):
     CompanyId   = db.Column(db.Integer, primary_key=True)
     CompanyName = db.Column(db.String(20), nullable=False, unique=True)
     RUT         = db.Column(db.Integer, nullable=False, unique=True)
-	RSocial     = db.Column(db.String(45), nullable=False)
+    RSocial     = db.Column(db.String(45), nullable=False)
 
 class User(db.Model,UserMixin):
     # The id column is the user's identity column
     UserId       = db.Column(db.Integer, primary_key=True)
     CustomerName = db.Column(db.String(45), nullable=False, unique=True)
     Password     = db.Column(db.String(80), nullable=False)
-	CompanyId    = db.Column(db.Integer, foreign_key=True)
-	Email        = db.Column(db.String(45), nullable=False, unique=True)
+    CompanyId    = db.Column(db.Integer, foreign_key=True)
+    Email        = db.Column(db.String(45), nullable=False, unique=True)
 
 class RegisterForm(FlaskForm):
-	#Company
+    #Company
     CompanyName = StringField(validators=[
                            InputRequired(),
                            Length(min=4, max=45)],
@@ -59,23 +59,23 @@ class RegisterForm(FlaskForm):
                            InputRequired(),
                            Length(min=4, max=45)],
                            render_kw={"placeholder": "RSocial"})
-	CompanyAddress = StringField(validators=[
+    CompanyAddress = StringField(validators=[
                            InputRequired(),
                            Length(min=4, max=45)],
                            render_kw={"placeholder": "CompanyAddress"})
-	CompanyState = StringField(validators=[
+    CompanyState = StringField(validators=[
                            InputRequired(),
                            Length(min=4, max=45)],
                            render_kw={"placeholder": "CompanyState"})
-	CompanyCity = StringField(validators=[
+    CompanyCity = StringField(validators=[
                            InputRequired(),
                            Length(min=4, max=45)],
                            render_kw={"placeholder": "CompanyCity"})
-	CompanyPhone = StringField(validators=[
+    CompanyPhone = StringField(validators=[
                            InputRequired(),
                            Length(min=4, max=20)],
                            render_kw={"placeholder": "CompanyPhone"})
-	#User
+    #User
     CustomerName = StringField(validators=[
                            InputRequired(),
                            Length(min=4, max=45)],
@@ -100,11 +100,11 @@ class RegisterForm(FlaskForm):
                            InputRequired(),
                            Length(min=4, max=45)],
                            render_kw={"placeholder": "Address"})
-	State = StringField(validators=[
+    State = StringField(validators=[
                            InputRequired(),
                            Length(min=4, max=45)],
                            render_kw={"placeholder": "State"})
-	City = StringField(validators=[
+    City = StringField(validators=[
                            InputRequired(),
                            Length(min=4, max=45)],
                            render_kw={"placeholder": "City"})
@@ -138,7 +138,7 @@ def index():
 
 @app.route('/signin', methods=['GET', 'POST'],  strict_slashes=False)
 def signin():
-	form = SigninForm()
+    form = SigninForm()
     if form.validate_on_submit():
         user = User.query.filter_by(CustomerName=form.CustomerName.data).first()
         if user:
@@ -149,11 +149,11 @@ def signin():
 
 @app.route('/sign_up', methods=['GET', 'POST'], strict_slashes=False)
 def sign_up():
-	form = RegisterForm()
+    form = RegisterForm()
     # The code for registration
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.Password.data)
-		new_company = Company(CompanyName=form.CompanyName.data, RUT=form.RUT.data)
+    new_company = Company(CompanyName=form.CompanyName.data, RUT=form.RUT.data)
         new_user = User(CustomerName=form.CustomerName.data, Password=hashed_password)
         db.session.add_all([new_company, new_user])
         db.session.commit()# Validate the changes
@@ -185,13 +185,13 @@ def edit_client():
 @app.route('/createrequest', strict_slashes=False)
 @login_required
 def create_request():
-	return 'Create request'
+    return 'Create request'
     #return render_template ('request.html')
 
 @app.route('/createbid', strict_slashes=False)
 @login_required
 def create_bid():
-	return 'Create bid'
+    return 'Create bid'
     #return render_template ('bid.html')
 
 if __name__ == '__main__':
