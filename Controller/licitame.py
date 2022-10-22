@@ -3,7 +3,7 @@
 Main application controller for Holberton MVP
 """
 
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user,  current_user
 from flask_bcrypt import Bcrypt
@@ -153,7 +153,7 @@ def signin():
         if user:
             if bcrypt.check_password_hash(user.Password, form.Password.data):
                 login_user(user)
-                flask.flash('Logged in successfully!')
+                flash('Logged in successfully!')
                 return redirect(url_for('home'))
 
     return render_template('sign_in.html', form=form)# I will pass this form in my html template
