@@ -73,7 +73,9 @@
 
 <main class="container">
   <div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm justify-content-center">
-      <button class="btn btn-outline-success btn-request" type="submit">Make Request</button>
+      <a href="{{ url_for('createrequest') }}">
+	      <button class="btn btn-outline-success btn-request" type="submit">Make Request</button>
+	  </a>
   </div>
 
   <div class="my-3 p-3 bg-body rounded shadow-sm">
