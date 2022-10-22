@@ -3,7 +3,7 @@
 #include <string.h>
 /**
 * Check_Rut - Function that checks if a RUT code given is valid through DV.
-* @rut: rut code given
+* @rut: rut code given by user
 * Return: 0 if valid, -1 otherwise
 **/
 int Check_Rut(char rut[])
