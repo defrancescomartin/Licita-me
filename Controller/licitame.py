@@ -30,6 +30,10 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'signin'
 
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
 class Company(db.Model):
     __tablename__ = 'Company'
     # The id column is the Company's identity column
