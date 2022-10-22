@@ -66,13 +66,13 @@
                   <label class="form-label" for="RSocial">Registered Name</label>
                 </div>
 				<div class="form-outline mb-4">
-                  <input type="text" id="CompanyAddress"class="form-control form-control-lg" />
+                  <input type="text" id="CompanyAddress" class="form-control form-control-lg" />
 				  {{ form.CompanyAddress }}
                   <label class="form-label" for="CompanyAddress">Company Address</label>
                 </div>
 				<div class="form-outline mb-4">
                   <input type="text" id="CompanyState"class="form-control form-control-lg" />
-				  {{ form.CompanyAddress }}
+				  {{ form.CompanyState }}
                   <label class="form-label" for="CompanyState">Company State</label>
                 </div>
 				<div class="form-outline mb-4">
@@ -134,6 +134,7 @@
 
 				<input type="submit" class="btn" value="Submit">
                 <input type="reset" class"btn-2">
+				{{ form.submit }}
                 <hr class="my-4"/>
 			  </form>
               </div>
