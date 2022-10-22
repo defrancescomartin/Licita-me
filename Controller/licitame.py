@@ -32,7 +32,7 @@ login_manager.login_view = 'signin'
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(int(user_id))
+    return User.query.get(user_id)
 
 class Company(db.Model):
     __tablename__ = 'Company'
@@ -153,6 +153,7 @@ def signin():
         if user:
             if bcrypt.check_password_hash(user.Password, form.Password.data):
                 login_user(user)
+				flask.flash('Logged in successfully!.')
                 return redirect(url_for('home'))
 
     return render_template('sign_in.html', form=form)# I will pass this form in my html template
