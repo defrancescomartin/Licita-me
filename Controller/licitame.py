@@ -51,6 +51,9 @@ class User(db.Model, UserMixin):
     CompanyId    = db.Column(db.Integer, db.ForeignKey("Company.CompanyId"))
     Email        = db.Column(db.String(45), nullable=False, unique=True)
 
+    def __repr__(self):
+        return f"User(id={self.id!r}, name={self.CustomerName!r}, email={self.Email!r}, company={self.CompanyId!r})"
+
 class RegisterForm(FlaskForm):
     #Company
     CompanyName = StringField(validators=[
