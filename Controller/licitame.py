@@ -71,6 +71,7 @@ class Bid(db.Model):
     Category         = db.Column(db.String(45), nullable=False)
     FileId         = db.Column(db.String(10), nullable=False)
     StatusCode   = db.Column(db.Integer, nullable=True)
+    #Falta id, RequestId, TotalAmount, StartingDate, FinishingDate
 
 class RegisterForm(FlaskForm):
     #Company
