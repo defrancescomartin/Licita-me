@@ -51,10 +51,10 @@ class RegisterForm(FlaskForm):
                            InputRequired(),
                            Length(min=4, max=45)],
                            render_kw={"placeholder": "CompanyName"})
-    RUT = PasswordField(validators=[
-                             InputRequired(),
-                             Length(min=12, max=12)],
-                             render_kw={"placeholder": "RUT"})
+    RUT = StringField(validators=[
+                           InputRequired(),
+                           Length(min=12, max=12)],
+                           render_kw={"placeholder": "RUT"})
     RSocial = StringField(validators=[
                            InputRequired(),
                            Length(min=4, max=45)],
