@@ -7,6 +7,7 @@ body {
 .form-signin {
   max-width: 330px;
   padding: 15px;
+  padding-top: 200px;
   color: rgb(0, 0, 0);
 }
 
@@ -93,4 +94,8 @@ body {
   }
   .registerlink:hover {
     color: #66102091;
+  }
+  .headerlogo {
+    display: flex;
+    width: 150px;
   }
