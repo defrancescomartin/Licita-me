@@ -148,7 +148,7 @@ def signin():
     if form.validate_on_submit():
         user = User.query.filter_by(CustomerName=form.CustomerName.data).first()
         if user:
-            if bcrypt.check_password_hash(User.Password, form.Password.data):
+            if bcrypt.check_password_hash(user.Password, form.Password.data):
                 login_user(user)
                 return redirect(url_for('home'))
     return render_template('sign_in.html', form=form)# I will pass this form in my html template
