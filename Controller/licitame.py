@@ -192,6 +192,12 @@ def sign_up3():
 def home():
     return render_template ('home.html')
 
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect(signin)
+
 @app.route('/editclient', strict_slashes=False)
 #@login_required
 def edit_client():
