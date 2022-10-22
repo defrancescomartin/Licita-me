@@ -32,7 +32,7 @@ login_manager.login_view = 'signin'
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(int(UserId))
+    return User.query.get(int(id))
 
 class Company(db.Model):
     __tablename__ = 'Company'
