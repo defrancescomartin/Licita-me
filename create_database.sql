@@ -52,7 +52,6 @@ CONSTRAINT `FK_1` FOREIGN KEY `FK_2` (`CompanyId`) REFERENCES `LicitaMeDB`.`Comp
 CREATE TABLE `LicitaMeDB`.`Request`
 (
  `RequestId`      int NOT NULL AUTO_INCREMENT ,
- `RequestNumber`  varchar(10) NOT NULL ,
  `id`             int NOT NULL ,
  `CompanyId`      int NOT NULL ,
  `FileId`         varchar(10) NULL ,
