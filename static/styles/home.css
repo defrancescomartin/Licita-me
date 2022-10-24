@@ -39,7 +39,7 @@ body {
 }
 
 .nav-scroller .nav-link:hover {
-  color: #007bff;
+  color:#661020;
 }
 
 .nav-scroller .active {
@@ -123,18 +123,19 @@ body {
   font-size: .875rem;
   color: #6c757d;
 }
-a {
-  color: #661020;
-}
-a:hover {
-  color: #66102091;
-}
 nav:hover {
   color: #66102091;
 }
 .btn-request:hover {
-  background-color: #000000;
+  background-color: #00000076;
+}
+.btn-request2 {
+  text-decoration: none;
 }
 .btn-request2:hover {
-  background-color: #007bff;
+  background-color: #661020;
+}
+.btn-suggestions {
+  color: #661020;
+  text-decoration: none;
 }
