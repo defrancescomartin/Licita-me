@@ -92,6 +92,7 @@ class Bid(db.Model):
     CompanyId     = db.Column(db.Integer, db.ForeignKey("Company.CompanyId"))
     Category      = db.Column(db.String(45), nullable=False)
     FileId        = db.Column(db.String(10), nullable=False)
+    CurrencyCode    = db.Column(db.Integer, nullable=True)
     StatusCode    = db.Column(db.Integer, nullable=True)
     TotalAmount   = db.Column(db.Numeric(12,2))
     StartingDate  = db.Column(db.Date)
