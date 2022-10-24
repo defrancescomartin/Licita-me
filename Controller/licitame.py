@@ -10,6 +10,7 @@ from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, ValidationError
+from datetime import datetime
 
 
 app=Flask(__name__, template_folder='../View', static_folder='../View')
@@ -37,19 +38,32 @@ def load_user(user_id):
 class Company(db.Model):
     __tablename__ = 'Company'
     # The id column is the Company's identity column
-    CompanyId   = db.Column(db.Integer, primary_key=True)
-    CompanyName = db.Column(db.String(20), nullable=False, unique=True)
-    RUT         = db.Column(db.String(12), nullable=False, unique=True)
-    RSocial     = db.Column(db.String(45), nullable=True)
+    CompanyId        = db.Column(db.Integer, primary_key=True)
+    CompanyName      = db.Column(db.String(20), nullable=False, unique=True)
+    RUT              = db.Column(db.String(12), nullable=False, unique=True)
+    RSocial          = db.Column(db.String(45), nullable=True)
+    Adress           = db.Column(db.String(45), nullable=True)
+    State            = db.Column(db.String(45), nullable=True)
+    City             = db.Column(db.String(45), nullable=True)
+    Phone            = db.Column(db.String(20), nullable=True)
+    CreationDate     = db.Column(db.DateTime, default=datetime.utcnow)
+    ModificationDate = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
 class User(db.Model, UserMixin):
     __tablename__ = 'User'
     # The id column is the user's identity column
     UserId       = db.Column(db.Integer, primary_key=True)
-    CustomerName = db.Column(db.String(45), nullable=False, unique=True)
-    Password     = db.Column(db.String(80), nullable=False)
     CompanyId    = db.Column(db.Integer, db.ForeignKey("Company.CompanyId"))
+    CustomerName = db.Column(db.String(45), nullable=False, unique=True)
+    Phone        = db.Column(db.String(20), nullable=True)
     Email        = db.Column(db.String(45), nullable=False, unique=True)
+    Birthdate    = db.Column(db.Date, nullable=True)
+    Adress       = db.Column(db.String(45), nullable=True)
+    State        = db.Column(db.String(45), nullable=True)
+    City         = db.Column(db.String(45), nullable=True)
+    Password     = db.Column(db.String(80), nullable=False)
+    CreationDate = db.Column(db.DateTime, default=datetime.utcnow)
+    ModificationDate = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
 class Request(db.Model):
     __tablename__ = 'Request'
@@ -57,21 +71,32 @@ class Request(db.Model):
     RequestId     = db.Column(db.Integer, nullable=False, primary_key=True)
     RequestNumber = db.Column(db.String(10), nullable=False)
     CompanyId     = db.Column(db.Integer, db.ForeignKey("Company.CompanyId"))
-    Category         = db.Column(db.String(45), nullable=False)
+    Category      = db.Column(db.String(45), nullable=False)
     Description   = db.Column(db.Text(64000), nullable=False)
     Title         = db.Column(db.String(45), nullable=False)
-    # Falta Id, CurrencyCode, StartingDate, FinishingDate, StatusCode, CreationDate, ModificationDate.
+    CurrencyCode  = db.Column(db.Integer, nullable=True)
+    StartingDate  = db.Column(db.Date, nullable=True)
+    FinishingDate = db.Column(db.Date, nullable=True)
+    CurrencyCode  = db.Column(db.Integer, nullable=True)
+    StatusCode    = db.Column(db.Integer, nullable=True)
+    CreationDate = db.Column(db.DateTime, default=datetime.utcnow)
+    ModificationDate = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    # Falta Id (FK)
 
 class Bid(db.Model):
     __tablename__ = 'Bid'
     # The id column is the user's identity column
-    BidId     = db.Column(db.Integer, nullable=False, primary_key=True)
-    BidNumber = db.Column(db.String(10), nullable=False)
+    BidId         = db.Column(db.Integer, nullable=False, primary_key=True)
+    BidNumber     = db.Column(db.String(10), nullable=False)
+    RequestId     = db.Column(db.Integer, nullable=True db.ForeignKey("Request.RequestId"))
     CompanyId     = db.Column(db.Integer, db.ForeignKey("Company.CompanyId"))
-    Category         = db.Column(db.String(45), nullable=False)
-    FileId         = db.Column(db.String(10), nullable=False)
-    StatusCode   = db.Column(db.Integer, nullable=True)
-    #Falta id, RequestId, TotalAmount, StartingDate, FinishingDate
+    Category      = db.Column(db.String(45), nullable=False)
+    FileId        = db.Column(db.String(10), nullable=False)
+    StatusCode    = db.Column(db.Integer, nullable=True)
+    TotalAmount   = db.Column(db.Numeric(12,2))
+    StartingDate  = db.Column(db.Date)
+    FinishingDate = db.Column(db.Date)
+    #Falta Id (FK)
 
 class RegisterForm(FlaskForm):
     #Company
