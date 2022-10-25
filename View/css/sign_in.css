@@ -1,15 +1,13 @@
 html,
 body {
-  align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #66102030;
+  background-color: #66102018;
   height: 100%;
 }
 
 .form-signin {
   max-width: 330px;
   padding: 15px;
+  padding-top: 200px;
   color: rgb(0, 0, 0);
 }
 
@@ -96,4 +94,8 @@ body {
   }
   .registerlink:hover {
     color: #66102091;
+  }
+  .headerlogo {
+    display: flex;
+    width: 150px;
   }
