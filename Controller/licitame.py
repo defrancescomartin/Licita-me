@@ -294,7 +294,7 @@ def create_request():
                               Description=form.Description.data,
                               Category=form.Category.data,
                               FinishDate=form.FinishDate.data,)
-        db.session.add(new_reuqest)
+        db.session.add(new_request)
         db.session.commit()
         # Must redirect to view "Request by id" (request just created)
         return redirect(url_for('home'))
