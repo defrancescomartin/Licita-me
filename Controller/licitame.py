@@ -80,9 +80,9 @@ class Request(db.Model):
     Title         = db.Column(db.String(45), nullable=False)
     FileId        = db.Column(db.String(10), nullable=False)
     StartingDate  = db.Column(db.Date, nullable=True)
-    FinishingDate = db.Column(db.Date, nullable=True)
+    FinishDate    = db.Column(db.Date, nullable=True)
     StatusCode    = db.Column(db.Integer, nullable=True)
-    CreationDate = db.Column(db.DateTime, default=datetime.utcnow)
+    CreationDate  = db.Column(db.DateTime, default=datetime.utcnow)
     ModificationDate = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
 class Bid(db.Model):
@@ -99,7 +99,7 @@ class Bid(db.Model):
     StatusCode    = db.Column(db.Integer, nullable=True)
     TotalAmount   = db.Column(db.Numeric(12,2))
     StartingDate  = db.Column(db.Date)
-    FinishingDate = db.Column(db.Date)
+    FinishDate = db.Column(db.Date)
 
 class RegisterForm(FlaskForm):
     #Company
