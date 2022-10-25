@@ -18,11 +18,13 @@
     <h1 class="h3 mb-3 fw-normal">Create Your Request</h1>
 
     <div class="form-floating">
-      <input {{ form.Title }} type="text" class="form-control" id="floatingInput" placeholder="Project title" required>
+      <input type="text" class="form-control" id="floatingInput" placeholder="Project title" required>
+	  {{ form.Title }}
     </div>
 
     <div class="form-floating">
-         <select {{ form.Category }} name="categoria" id="categoria" placeholder="Category" class="form-control" required>
+         <select name="categoria" id="categoria" placeholder="Category" class="form-control" required>
+			 {{ form.Category }}
             <option value="1">Obra Civil</option>
             <option value="2">Carpintería</option>
             <option value="3">Electrica</option>
@@ -32,12 +34,14 @@
     </div>
 
     <div class="form-floating">
-    <input {{ form.FinishDate }} type="text" placeholder="Deadline" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" required/>
+    <input type="text" placeholder="Deadline" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" required/>
+	{{ form.FinishDate }}
     </div>
 
     <div class="comment">
 	<label for="comment">Project description:</label>
-        <textarea {{ form.Description }} class="form-control" rows="4" id="comment" required>
+        <textarea class="form-control" rows="4" id="comment" required>
+			{{ form.Description }}
 	</textarea>
       </div>
 
@@ -45,7 +49,8 @@
 <input type="file" name="adjunto" accept="application/pdf, .doc, .docx" multiple required/>
       </div>
 
-    <button {{ form.submit }} class="w-100 btn btn-lg btn-primary btn-ale" type="submit">Create</button>
+    <button class="w-100 btn btn-lg btn-primary btn-ale" type="submit">Create</button>
+	{{ form.submit }}
     <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
   </form>
 </main>
