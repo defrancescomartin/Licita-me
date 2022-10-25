@@ -19,6 +19,10 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://licitame:Password-2022@localhos
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Adding a secret key
 app.config['SECRET_KEY']='Pass2022'
+# Config the pool for uploads
+app.config['UPLOAD_FOLDER']='./pool'
+# Config max upload file size to 10MB
+app.config['MAX_CONTENT_PATH']= 1024*1024*10
 # Create the database instance
 db  = SQLAlchemy(app)
 # Use bcrypt so i can hash the passwords
@@ -37,46 +41,64 @@ def load_user(user_id):
 class Company(db.Model):
     __tablename__ = 'Company'
     # The id column is the Company's identity column
-    CompanyId   = db.Column(db.Integer, primary_key=True)
-    CompanyName = db.Column(db.String(20), nullable=False, unique=True)
-    RUT         = db.Column(db.String(12), nullable=False, unique=True)
-    RSocial     = db.Column(db.String(45), nullable=True)
+    CompanyId        = db.Column(db.Integer, primary_key=True)
+    CompanyName      = db.Column(db.String(20), nullable=False, unique=True)
+    RUT              = db.Column(db.String(12), nullable=False, unique=True)
+    RSocial          = db.Column(db.String(45), nullable=True)
+    Adress           = db.Column(db.String(45), nullable=True)
+    State            = db.Column(db.String(45), nullable=True)
+    City             = db.Column(db.String(45), nullable=True)
+    Phone            = db.Column(db.String(20), nullable=True)
+    CreationDate     = db.Column(db.DateTime, default=datetime.utcnow)
+    ModificationDate = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
 class User(db.Model, UserMixin):
     __tablename__ = 'User'
     # The id column is the user's identity column
-    id           = db.Column(db.Integer, primary_key=True)
-    CustomerName = db.Column(db.String(45), nullable=False, unique=True)
-    Password     = db.Column(db.String(80), nullable=False)
+    UserId       = db.Column(db.Integer, primary_key=True)
     CompanyId    = db.Column(db.Integer, db.ForeignKey("Company.CompanyId"))
+    CustomerName = db.Column(db.String(45), nullable=False, unique=True)
+    Phone        = db.Column(db.String(20), nullable=True)
     Email        = db.Column(db.String(45), nullable=False, unique=True)
-
-    def __repr__(self):
-        return f"User(id={self.id!r}, name={self.CustomerName!r}, email={self.Email!r}, company={self.CompanyId!r})"
+    Birthdate    = db.Column(db.Date, nullable=True)
+    Adress       = db.Column(db.String(45), nullable=True)
+    State        = db.Column(db.String(45), nullable=True)
+    City         = db.Column(db.String(45), nullable=True)
+    Password     = db.Column(db.String(80), nullable=False)
+    CreationDate = db.Column(db.DateTime, default=datetime.utcnow)
+    ModificationDate = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
 class Request(db.Model):
     __tablename__ = 'Request'
     # The id column is the user's identity column
     RequestId     = db.Column(db.Integer, nullable=False, primary_key=True)
-    RequestNumber = db.Column(db.String(10), nullable=False)
     CompanyId     = db.Column(db.Integer, db.ForeignKey("Company.CompanyId"))
+    id            = db.Column(db.Integer, db.ForeignKey("User.id"))
     Category      = db.Column(db.String(45), nullable=False)
     Description   = db.Column(db.Text(64000), nullable=False)
     Title         = db.Column(db.String(45), nullable=False)
-    # Falta Id, CurrencyCode, StartingDate, FinishingDate, StatusCode, CreationDate, ModificationDate.
+    FileId        = db.Column(db.String(10), nullable=False)
+    StartingDate  = db.Column(db.Date, nullable=True)
+    FinishingDate = db.Column(db.Date, nullable=True)
+    StatusCode    = db.Column(db.Integer, nullable=True)
+    CreationDate = db.Column(db.DateTime, default=datetime.utcnow)
+    ModificationDate = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
 class Bid(db.Model):
     __tablename__ = 'Bid'
     # The id column is the user's identity column
-    BidId       = db.Column(db.Integer, nullable=False, primary_key=True)
-    BidNumber   = db.Column(db.String(10), nullable=False)
-    CompanyId   = db.Column(db.Integer, db.ForeignKey("Company.CompanyId"))
-    id          = db.Column(db.Integer, db.ForeignKey("User.id"))
-    RequestId   = db.Column(db.Integer, db.ForeignKey("Request.RequestId"))
-    Category    = db.Column(db.String(45), nullable=False)
-    FileId      = db.Column(db.String(10), nullable=False)
-    StatusCode  = db.Column(db.Integer, nullable=True)
-    #TotalAmount, StartingDate, FinishingDate
+    BidId         = db.Column(db.Integer, nullable=False, primary_key=True)
+    BidNumber     = db.Column(db.String(10), nullable=False)
+    RequestId     = db.Column(db.Integer, nullable=True db.ForeignKey("Request.RequestId"))
+    id            = db.Column(db.Integer, db.ForeignKey("User.id"))
+    CompanyId     = db.Column(db.Integer, db.ForeignKey("Company.CompanyId"))
+    Category      = db.Column(db.String(45), nullable=False)
+    FileId        = db.Column(db.String(10), nullable=False)
+    CurrencyCode  = db.Column(db.Integer, nullable=True)
+    StatusCode    = db.Column(db.Integer, nullable=True)
+    TotalAmount   = db.Column(db.Numeric(12,2))
+    StartingDate  = db.Column(db.Date)
+    FinishingDate = db.Column(db.Date)
 
 class RegisterForm(FlaskForm):
     #Company
@@ -119,8 +141,13 @@ class RegisterForm(FlaskForm):
                            render_kw={"placeholder": "Phone"})
     Password = PasswordField(validators=[
                              InputRequired(),
-                             Length(min=8, max=20)],
+                             Length(min=8, max=20),
+                             EqualTo('Confirm', message='Passwords must match')],
                              render_kw={"placeholder": "Password"})
+    Confirm  = PasswordField(validators=[
+                             InputRequired(),
+                             Length(min=8, max=20)],
+                             render_kw={"placeholder": "Repeat Password"})
     Email = StringField(validators=[
                            InputRequired(),
                            Length(min=4, max=45)],
@@ -154,7 +181,7 @@ def validate_username(self, CustomerName):
     existing_user_username = User.query.filter_by(CustomerName=CustomerName.data).first()
     if existing_user_username:
         raise ValidationError('That username already exists. Please choose a different one.')
-
+# Signin Form validators
 class SigninForm(FlaskForm):
     CustomerName = StringField(validators=[InputRequired(),
                                      Length(min=3, max=45)],
@@ -163,6 +190,40 @@ class SigninForm(FlaskForm):
                                      Length(min=8, max=20)],
                                      render_kw={"placeholder": "Password"})
     submit = SubmitField('signin')
+
+# Create Request Form validators
+class RequestForm(FlaskForm):
+    Title = StringField(validators=[InputRequired(),
+                                     Length(min=3, max=45)],
+                                     render_kw={"placeholder": "Title"})
+    Description = StringField(validators=[InputRequired(),
+                                     Length(min=3, max=64000)],
+                                     render_kw={"placeholder": "Description"})
+    Category = StringField(validators=[InputRequired(),
+                                     Length(min=3, max=45)],
+                                     render_kw={"placeholder": "Category"})
+    FinishDate = StringField(validators=[InputRequired(),
+                                     Length(min=9, max=11)],
+                                     render_kw={"placeholder": "FinishDate"})
+    submit = SubmitField('create_request')
+
+
+# Create Bid Form validators
+class BidForm(FlaskForm):
+
+    StartingDate = StringField(validators=[InputRequired(),
+                                     Length(min=9, max=11)],
+                                     render_kw={"placeholder": "StartingDate"})
+    FinishDate = StringField(validators=[InputRequired(),
+                                     Length(min=9, max=11)],
+                                     render_kw={"placeholder": "FinishDate"})
+    CurrencyCode = StringField(validators=[InputRequired(),
+                                     Length(min=1, max=1)],
+                                     render_kw={"placeholder": "Currency"})
+    TotalAmount = StringField(validators=[InputRequired(),
+                                     Length(min=1, max=15)],
+                                     render_kw={"placeholder": "TotalAmount"})
+    submit = SubmitField('create_request')
 
 
 @app.route('/', strict_slashes=False)
@@ -203,14 +264,6 @@ def sign_up():
 
     return render_template ('sign_up.html', form=form)
 
-@app.route('/sign_up2', strict_slashes=False)
-def sign_up2():
-    return render_template ('sign_up2.html')
-
-@app.route('/sign_up3', strict_slashes=False)
-def sign_up3():
-    return render_template ('sign_up3.html')
-
 @app.route('/home', strict_slashes=False)
 @login_required
 def home():
@@ -227,14 +280,48 @@ def logout():
 def edit_client():
     return 'edit client'
 
-@app.route('/create_request', strict_slashes=False)
+@app.route('/create_request', methods=['GET', 'POST'], strict_slashes=False)
 @login_required
 def create_request():
+    form = RequestForm()
+    # The code to insert new request
+    if form.validate_on_submit():
+        new_request = Request(id=user.id,
+                              CompanyId=user.CompanyId,
+                              StatusCode=0,
+                              Title=form.Title.data,
+                              Description=form.Description.data,
+                              Category=form.Category.data,
+                              FinishDate=form.FinishDate.data,)
+        db.session.add(new_reuqest)
+        db.session.commit()
+        # Must redirect to view "Request by id" (request just created)
+        return redirect(url_for('home'))
     return render_template ('request.html')
 
-@app.route('/create_bid', strict_slashes=False)
+@app.route('/request/<int:request_id>', strict_slashes=False)
+def request_by(request_id):
+        # View Request by ID
+        request = Request.query.filter_by(RequestId=id).first()
+        return render_template('request_inside.html', request=request)
+
+@app.route('/create_bid/<int:request_id>', methods=['GET', 'POST'], strict_slashes=False)
 @login_required
-def create_bid():
+def create_bid(request_id):
+    form = BidForm()
+    # The code to insert new request
+    if form.validate_on_submit():
+        new_bid = Bid(id=user.id,
+                      CompanyId=user.CompanyId,
+                      StatusCode=0,
+                      TotalAmount=form.TotalAmount.data,
+                      StartingDate=form.StartingDate.data,
+                      FinishDate=form.FinishDate.data,
+                      CurrencyCode=form.CurrencyCode.data)
+        db.session.add(new_reuqest)
+        db.session.commit()
+        # Must redirect to view "Request by id" (request just created)
+        return redirect(url_for('home'))
     return render_template ('bid.html')
 
 if __name__ == '__main__':
