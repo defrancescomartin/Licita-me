@@ -136,7 +136,7 @@ class RegisterForm(FlaskForm):
                            InputRequired(),
                            Length(min=3, max=45)],
                            render_kw={"placeholder": "CustomerName"})
-	CustomerLastName = StringField(validators=[
+    CustomerLastName = StringField(validators=[
                            InputRequired(),
                            Length(min=3, max=45)],
                            render_kw={"placeholder": "CustomerLastName"})
