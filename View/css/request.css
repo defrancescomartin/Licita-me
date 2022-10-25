@@ -14,14 +14,9 @@ body {
   z-index: 2;
 }
 
-.form-request input[type="email username"] {
+.form-request input[class="form-control"] {
   margin-bottom: 10px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.form-request input[type="password"] {
-  margin-bottom: 10px;
+  margin-top: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -30,7 +25,7 @@ body {
   margin-bottom: 20px;
 }
 
-}
+
 .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
