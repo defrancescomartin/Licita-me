@@ -268,7 +268,8 @@ def sign_up():
 @app.route('/home', strict_slashes=False)
 @login_required
 def home():
-    return render_template ('home.html')
+    requests = Request.query.all()
+    return render_template ('home.html', requests=requests)
 
 @app.route("/logout")
 @login_required
