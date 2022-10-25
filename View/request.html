@@ -18,35 +18,35 @@
     <h1 class="h3 mb-3 fw-normal">Create Your Request</h1>
 
     <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput" placeholder="Project title" required>
+     <!-- <input type="text" class="form-control" id="floatingInput" placeholder="Project title" required> -->
 	  {{ form.Title }}
     </div>
 
     <div class="form-floating">
-         <select name="categoria" id="categoria" placeholder="Category" class="form-control" required>
+        <!-- <select name="categoria" id="categoria" placeholder="Category" class="form-control" required>
             <option value="1">Obra Civil</option>
             <option value="2">Carpintería</option>
             <option value="3">Electrica</option>
             <option value="4">Sanitaria</option>
             <option value="5">Ingeniería</option>
-        </select>
+        </select>-->
 		{{ form.Category }}
     </div>
 
     <div class="form-floating">
-    <input type="text" placeholder="Deadline" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" required/>
+<!--    <input type="text" placeholder="Deadline" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" required/>-->
 	{{ form.FinishDate }}
     </div>
 
     <div class="comment">
-	<label for="comment">Project description:</label>
+<!--	<label for="comment">Project description:</label>
         <textarea class="form-control" rows="4" id="comment" required>
-	</textarea>
+	</textarea>-->
 	{{ form.Description }}
       </div>
 
       <div class="form-floating">
-<input type="file" placeholder="File upload" name="adjunto" accept="application/pdf, .doc, .docx" multiple required/>
+<!--<input type="file" placeholder="File upload" name="adjunto" accept="application/pdf, .doc, .docx" multiple required/>-->
       </div>
 
     <button class="w-100 btn btn-lg btn-primary btn-ale" type="submit">Create</button>
