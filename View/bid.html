@@ -20,12 +20,14 @@
     </header>
 
 <main class="form-signin m-auto d-flex align-middle">
-  <form>
+  <form method="post">
+	  {{ form.hidden_tag() }}
     <div class="row form-group form-floating">
       <h5>Start date:</h5>
     <div class="datepicker-bid">
         <div class="input-group date" id="datepicker">
-            <input type="text" class="form-control">
+            <!--<input type="text" class="form-control">-->
+			{{ form.StartingDate(class_="form-control") }}
             <span class="input-group-append">
                 <span class="input-group-text bg-white d-block">
                    <i class="fa fa-calendar"></i>
@@ -39,6 +41,7 @@
     <div class="datepicker-bid">
         <div class="input-group date" id="datepicker2">
             <input type="text" class="form-control">
+			{{ form.FinishDate(class_="form-control") }}
             <span class="input-group-append">
                 <span class="input-group-text bg-white d-block">
                    <i class="fa fa-calendar"></i>
