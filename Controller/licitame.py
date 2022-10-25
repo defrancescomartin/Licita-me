@@ -286,8 +286,8 @@ def create_request():
     form = RequestForm()
     # The code to insert new request
     if form.validate_on_submit():
-        new_request = Request(id=user.id,
-                              CompanyId=user.CompanyId,
+        new_request = Request(id=current_user.id,
+                              CompanyId=current_user.CompanyId,
                               StatusCode=0,
                               Title=form.Title.data,
                               Description=form.Description.data,
@@ -300,9 +300,12 @@ def create_request():
     return render_template ('request.html')
 
 @app.route('/request/<int:request_id>', strict_slashes=False)
+@login_required
 def request_by(request_id):
         # View Request by ID
         request = Request.query.filter_by(RequestId=id).first()
+        if request.id = current_user.id:
+            return render_template('my_request.html', request=request)
         return render_template('request_inside.html', request=request)
 
 @app.route('/create_bid/<int:request_id>', methods=['GET', 'POST'], strict_slashes=False)
@@ -311,8 +314,8 @@ def create_bid(request_id):
     form = BidForm()
     # The code to insert new request
     if form.validate_on_submit():
-        new_bid = Bid(id=user.id,
-                      CompanyId=user.CompanyId,
+        new_bid = Bid(id=current_user.id,
+                      CompanyId=current_user.CompanyId,
                       StatusCode=0,
                       TotalAmount=form.TotalAmount.data,
                       StartingDate=form.StartingDate.data,
