@@ -136,6 +136,10 @@ class RegisterForm(FlaskForm):
                            InputRequired(),
                            Length(min=3, max=45)],
                            render_kw={"placeholder": "CustomerName"})
+	CustomerLastName = StringField(validators=[
+                           InputRequired(),
+                           Length(min=3, max=45)],
+                           render_kw={"placeholder": "CustomerLastName"})
     Phone = StringField(validators=[
                            InputRequired(),
                            Length(min=4, max=20)],
@@ -307,10 +311,10 @@ def request_by(request_id):
         # View Request by ID
         request = Request.query.filter_by(RequestId=request_id).first()
         if request.id == current_user.id:
-            return render_template('my_request.html', request=request)
+            return render_template('my_request.html', request=request, )
         return render_template('request_inside.html', request=request)
 
-@app.route('/create_bid/<int:request_id>', methods=['GET', 'POST'], strict_slashes=False)
+@app.route('/create_bid', methods=['GET', 'POST'], strict_slashes=False)
 @login_required
 def create_bid(request_id):
     form = BidForm()
