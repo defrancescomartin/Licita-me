@@ -62,7 +62,7 @@ class User(db.Model, UserMixin):
     Phone        = db.Column(db.String(20), nullable=True)
     Email        = db.Column(db.String(45), nullable=False, unique=True)
     Birthdate    = db.Column(db.Date, nullable=True)
-    Address       = db.Column(db.String(45), nullable=True)
+    Address      = db.Column(db.String(45), nullable=True)
     State        = db.Column(db.String(45), nullable=True)
     City         = db.Column(db.String(45), nullable=True)
     Password     = db.Column(db.String(80), nullable=False)
