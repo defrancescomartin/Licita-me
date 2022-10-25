@@ -305,7 +305,7 @@ def create_request():
 @login_required
 def request_by(request_id):
         # View Request by ID
-        request = Request.query.filter_by(RequestId=id).first()
+        request = Request.query.filter_by(RequestId=request_id).first()
         if request.id == current_user.id:
             return render_template('my_request.html', request=request)
         return render_template('request_inside.html', request=request)
