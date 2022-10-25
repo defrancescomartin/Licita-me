@@ -24,13 +24,13 @@
 
     <div class="form-floating">
          <select name="categoria" id="categoria" placeholder="Category" class="form-control" required>
-			 {{ form.Category }}
             <option value="1">Obra Civil</option>
             <option value="2">Carpintería</option>
             <option value="3">Electrica</option>
             <option value="4">Sanitaria</option>
             <option value="5">Ingeniería</option>
         </select>
+		{{ form.Category }}
     </div>
 
     <div class="form-floating">
@@ -46,7 +46,7 @@
       </div>
 
       <div class="form-floating">
-<input type="file" name="adjunto" accept="application/pdf, .doc, .docx" multiple required/>
+<input type="file" placeholder="File upload" name="adjunto" accept="application/pdf, .doc, .docx" multiple required/>
       </div>
 
     <button class="w-100 btn btn-lg btn-primary btn-ale" type="submit">Create</button>
