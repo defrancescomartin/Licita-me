@@ -298,7 +298,7 @@ def create_request():
         db.session.commit()
         # Must redirect to view "Request by id" (request just created)
         return redirect(url_for('home'))
-    return render_template ('request.html')
+    return render_template ('request.html', form=form)
 
 @app.route('/request/<int:request_id>', strict_slashes=False)
 @login_required
