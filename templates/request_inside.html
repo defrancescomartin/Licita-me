@@ -44,7 +44,55 @@
         <li>Job</li>
         <li>Job</li>
       </div>
-    <a href="bid.html" <button class="btn btn-lg btn-primary btn-ale" type="submit">Make a Bid</button></a>
+      
+    <form method="post">
+        {{ form.hidden_tag() }}
+      <div class="row form-group form-floating">
+        <h5>Start date:</h5>
+      <div class="datepicker-bid">
+          <div class="input-group date" id="datepicker">
+              <!--<input type="text" class="form-control">-->
+              {{ form.StartingDate(class_="form-control") }}
+              <span class="input-group-append">
+                  <span class="input-group-text bg-white d-block">
+                     <i class="fa fa-calendar"></i>
+                      </span>
+                  </span>
+              </div>
+          </div>
+      </div>
+      <div class="row form-group form-floating">
+        <h5>End date:</h5>
+      <div class="datepicker-bid">
+          <div class="input-group date" id="datepicker2">
+              <!--<input type="text" class="form-control">-->
+              {{ form.FinishDate(class_="form-control") }}
+              <span class="input-group-append">
+                  <span class="input-group-text bg-white d-block">
+                     <i class="fa fa-calendar"></i>
+                      </span>
+                  </span>
+              </div>
+          </div>
+      </div>
+      <h5>Amount:</h5>
+      <div class="input-group">
+        <select class="form-select" id="inputGroupSelect01">
+          <option selected>Currency</option>
+          <option value="1">US$</option>
+          <option value="2">$</option>
+        </select>
+        <!--<input type="text" class="form-control" aria-label="Text input with dropdown button">-->
+        {{ form.TotalAmount(class_="input-group form-control") }}
+      </div>
+      <div class="mb-3 m-4">
+        <input class="form-control form-control-sm" id="formFileSm" type="file">
+        <!--falta agregar para subir archivo-->
+      </div>
+      <!--<button class="w-100 btn btn-lg btn-primary btn-ale" type="submit">Bid</button>-->
+      {{ form.TotalAmount(class_="w-100 btn btn-lg btn-primary btn-ale") }}
+      <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+    </form>
   </main>
   <footer class="pt-5 my-5 border-top">
   </footer>
