@@ -325,9 +325,9 @@ def create_bid(request_id):
                       CurrencyCode=form.CurrencyCode.data)
         db.session.add(new_reuqest)
         db.session.commit()
-        # Must redirect to view "Request by id" (request just created)
+        # Must redirect to view "Bid by id" (request just created)
         return redirect(url_for('home'))
-    return render_template ('bid.html')
+    return render_template ('bid.html', request_id=request_id)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port = 5000, debug = True)
