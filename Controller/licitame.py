@@ -204,7 +204,7 @@ class RequestForm(FlaskForm):
                                      Length(min=3, max=45)],
                                      render_kw={"placeholder": "Category"})
     FinishDate = StringField(validators=[InputRequired(),
-                                     Length(min=9, max=11)],
+                                     Length(min=4, max=45)],
                                      render_kw={"placeholder": "FinishDate"})
     submit = SubmitField('create_request')
 
