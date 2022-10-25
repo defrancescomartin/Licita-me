@@ -89,7 +89,7 @@ class Bid(db.Model):
     # The id column is the user's identity column
     BidId         = db.Column(db.Integer, nullable=False, primary_key=True)
     BidNumber     = db.Column(db.String(10), nullable=False)
-    RequestId     = db.Column(db.Integer, nullable=True db.ForeignKey("Request.RequestId"))
+    RequestId     = db.Column(db.Integer, db.ForeignKey("Request.RequestId"))
     id            = db.Column(db.Integer, db.ForeignKey("User.id"))
     CompanyId     = db.Column(db.Integer, db.ForeignKey("Company.CompanyId"))
     Category      = db.Column(db.String(45), nullable=False)
