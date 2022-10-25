@@ -14,7 +14,7 @@
 	  {% if current_user.is_authenticated %}
 	    Hi {{ current_user.CustomerName }}!
 	  {% endif %}
-    <a class="navbar-brand" href="{{ url_for('/') }}"><img class="headerlogo" src="View/images/logo3prueba.png" alt=""></a>
+    <a class="navbar-brand" href="{{ url_for('index') }}"><img class="headerlogo" src="View/images/logo3prueba.png" alt=""></a>
     <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
