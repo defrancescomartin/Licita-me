@@ -19,7 +19,7 @@
 
     <div class="form-floating">
      <!-- <input type="text" class="form-control" id="floatingInput" placeholder="Project title" required> -->
-	  {{ form.Title }}
+	  {{ form.Title(class_="form-control") }}
     </div>
 
     <div class="form-floating">
@@ -30,19 +30,19 @@
             <option value="4">Sanitaria</option>
             <option value="5">Ingeniería</option>
         </select>-->
-		{{ form.Category }}
+		{{ form.Category(class_="form-control") }}
     </div>
 
     <div class="form-floating">
 <!--    <input type="text" placeholder="Deadline" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" required/>-->
-	{{ form.FinishDate }}
+	{{ form.FinishDate(class_="form-control") }}
     </div>
 
     <div class="comment">
 <!--	<label for="comment">Project description:</label>
         <textarea class="form-control" rows="4" id="comment" required>
 	</textarea>-->
-	{{ form.Description }}
+	{{ form.Description(class_="form-control") }}
       </div>
 
       <div class="form-floating">
@@ -50,7 +50,7 @@
       </div>
 
     <button class="w-100 btn btn-lg btn-primary btn-ale" type="submit">Create</button>
-	{{ form.submit }}
+	{{ form.submit(class_="w-100 btn btn-lg btn-primary btn-ale") }}
     <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
   </form>
 </main>
