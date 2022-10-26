@@ -10,7 +10,7 @@ from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired
 from wtforms import StringField, PasswordField, SubmitField, FileField
-from wtforms.validators import InputRequired, Length, ValidationError, EqualTo
+from wtforms.validators import InputRequired, Length, ValidationError, EqualTo, FileRequired
 from datetime import datetime
 from werkzeug.utils import secure_filename
 
