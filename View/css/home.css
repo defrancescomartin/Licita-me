@@ -77,7 +77,10 @@ body {
   width: 1.5rem;
   height: 100vh;
 }
-
+.sep {
+	height: 50px;
+	overflow-y: hidden;
+}
 .bi {
   vertical-align: -.125em;
   fill: currentColor;
