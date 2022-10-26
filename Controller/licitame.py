@@ -310,7 +310,7 @@ def create_request():
 def request_by(request_id):
     # View Request by ID
     req = Request.query.filter_by(RequestId=request_id).first()
-    comp = Company.query.filter_by(RequestId=request_id).first()
+    comp = Company.query.filter_by(CompanyId=req.CompanyId).first()
     print(f'Id{req.RequestId}, Title{req.Title}, Desc{req.Description}')
 
     if req.id == current_user.id:
