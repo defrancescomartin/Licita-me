@@ -305,16 +305,15 @@ def create_request():
         return redirect(url_for('home'))
     return render_template ('request.html', form=form)
 
-@app.route('/request', strict_slashes=False)
+@app.route('/request/<request_id>', strict_slashes=False)
 @login_required
-def request_by():
-        # View Request by ID
-        if request.args.get('request_id'):
-            req = Request.query.filter_by(RequestId=request_id).first()
-            if req.id == current_user.id:
-                bids = Bid.query.filter_by(RequestId=request_id).all()
-                return render_template('my_request.html', req=req, bids=bids)
-            return render_template('request_inside.html', req=req)
+def request_by(request_id):
+    # View Request by ID
+    req = Request.query.filter_by(RequestId=request_id).first()
+    if req.id == current_user.id:
+        bids = Bid.query.filter_by(RequestId=request_id).all()
+        return render_template('my_request.html', req=req, bids=bids)
+    return render_template('request_inside.html', req=req)
 
 @app.route('/create_bid/<int:request_id>', methods=['GET', 'POST'], strict_slashes=False)
 @login_required
