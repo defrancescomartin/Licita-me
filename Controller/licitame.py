@@ -10,7 +10,7 @@ from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired
 from wtforms import StringField, PasswordField, SubmitField, FileField
-from wtforms.validators import InputRequired, Length, ValidationError, EqualTo, FileRequired
+from wtforms.validators import InputRequired, Length, ValidationError, EqualTo, Required
 from datetime import datetime
 from werkzeug.utils import secure_filename
 
@@ -232,7 +232,7 @@ class BidForm(FlaskForm):
     TotalAmount = StringField(validators=[InputRequired(),
                                      Length(min=1, max=15)],
                                      render_kw={"placeholder": "TotalAmount"})
-    files = FileField(validators=[FileRequired()],
+    files = FileField(validators=[Required()],
                                      render_kw={"placeholder": "FileUpload"})
     submit = SubmitField('create_request')
 
