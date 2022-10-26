@@ -229,6 +229,7 @@ class BidForm(FlaskForm):
     TotalAmount = StringField(validators=[InputRequired(),
                                      Length(min=1, max=15)],
                                      render_kw={"placeholder": "TotalAmount"})
+    files = FileField(validators=[InputRequired()], render_kw={"placeholder": "FileUpload"})
     submit = SubmitField('create_request')
 
 
