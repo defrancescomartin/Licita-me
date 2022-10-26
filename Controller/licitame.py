@@ -11,6 +11,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, ValidationError, EqualTo
 from datetime import datetime
+from werkzeug import secure_filename
 
 
 app=Flask(__name__, template_folder='../View', static_folder='../View')
@@ -335,6 +336,10 @@ def create_bid(request_id):
                       CurrencyCode=form.CurrencyCode.data)
         db.session.add(new_bid)
         db.session.commit()
+        if request.method == 'POST':
+            f = request.files['file']
+            f.save(secure_filename(f.filename))
+            return "File saved successfully"
         # Must redirect to view "Bid by id" (request just created)
         return redirect(url_for('home'))
     return render_template('bid.html', request_id=request_id, form=form)
