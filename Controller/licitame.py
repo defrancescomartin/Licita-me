@@ -310,8 +310,11 @@ def create_request():
 def request_by(request_id):
     # View Request by ID
     req = Request.query.filter_by(RequestId=request_id).first()
+    print("First request")
     if req.id == current_user.id:
+        print("if request")
         bids = Bid.query.filter_by(RequestId=request_id).all()
+        print("Second request")
         return render_template('my_request.html', req=req, bids=bids)
     return render_template('request_inside.html', req=req)
 
