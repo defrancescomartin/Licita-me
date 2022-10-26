@@ -12,6 +12,7 @@ from flask_wtf.file import FileField, FileRequired
 from wtforms import StringField, PasswordField, SubmitField, FileField
 from wtforms.validators import InputRequired, Length, ValidationError, EqualTo
 from datetime import datetime
+from werkzeug.utils import secure_filename
 
 
 app=Flask(__name__, template_folder='../View', static_folder='../View')
