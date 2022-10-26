@@ -310,15 +310,15 @@ def create_request():
     # The code to insert new request
     if form.validate_on_submit():
         f = form.files.data
-        filename = secure_filename(f.filename)
-        f.save(os.path.join(app.instance_path, 'pool', filename))
+        f.save(secure_filename(f.filename))
         new_request = Request(id=current_user.id,
                               CompanyId=current_user.CompanyId,
                               StatusCode=0,
                               Title=form.Title.data,
                               Description=form.Description.data,
                               Category=form.Category.data,
-                              FinishDate=form.FinishDate.data,)
+                              FinishDate=form.FinishDate.data,
+                              FileId=secure_filename(f.filename))
         db.session.add(new_request)
         db.session.commit()
         # Must redirect to view "Request by id" (request just created)
@@ -350,8 +350,7 @@ def create_bid(request_id):
     # The code to insert new request
     if form.validate_on_submit():
         f = form.files.data
-        filename = secure_filename(f.filename)
-        f.save(os.path.join(app.instance_path, 'pool', filename))
+        f.save(secure_filename(f.filename))
         new_bid = Bid(id=current_user.id,
                       CompanyId=current_user.CompanyId,
                       StatusCode=0,
