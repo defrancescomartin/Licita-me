@@ -305,9 +305,9 @@ def create_request():
         return redirect(url_for('home'))
     return render_template ('request.html', form=form)
 
-@app.route('/request', strict_slashes=False)
+@app.route('/request/<int:request_id>', strict_slashes=False)
 @login_required
-def request_by():
+def request_by(request_id):
         # View Request by ID
         request.args.get('request_id')
         req = Request.query.filter_by(RequestId=request_id).first()
