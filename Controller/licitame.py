@@ -281,7 +281,7 @@ def home():
 @login_required
 def my_requests():
     requests = Request.query.filter_by(id=current_user.id).all()
-    print('test before')
+    print(f'test before current user id:{current_user.id}')
     for req in requests:
         print(f'Id{req.RequestId}, Title{req.Title}, Desc{req.Description}')
     return render_template('home.html', requests=requests)
