@@ -311,10 +311,11 @@ def request_by(request_id):
         # View Request by ID
         request = Request.query.filter_by(RequestId=request_id).first()
         if request.id == current_user.id:
-            return render_template('my_request.html', request=request, )
+            bids = Bid.query.filter_by(RequestId=request_id).all()
+            return render_template('my_request.html', request=request, bids=bids)
         return render_template('request_inside.html', request=request)
 
-@app.route('/create_bid', methods=['GET', 'POST'], strict_slashes=False)
+@app.route('/create_bid/<int:request_id>', methods=['GET', 'POST'], strict_slashes=False)
 @login_required
 def create_bid(request_id):
     form = BidForm()
