@@ -19,9 +19,9 @@
   </header>
 
   <main>
-    <h2>Company name</h2>
-    <p class="fs-5 col-md-8">
-      Description of the project: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices tincidunt arcu non </p>
+    <h2>{{ comp.CompanyName }} e</h2>
+    <p class="fs-5 col-md-8">{{ request.Title }}</p>
+
 
     <div class="mb-5 btn">
       <a href="../examples/" class="btn btn-primary btn-lg px-4">Download file</a>
@@ -31,15 +31,8 @@
 
     <div class="row g-5">
       <div class="col-md-6">
-        <h2>Jobs needed</h2>
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <li>Carpenter</li>
-        <li>Job</li>
-        <li>Job</li>
-        <li>Job</li>
-        <li>Job</li>
-        <li>Job</li>
-        <li>Job</li>
+        <h2>Description of the project:</h2>
+        <p> {{ req.Description }}</p>
       </div>
     <a href="{{ url_for('create_bid', request_id=req.RequestId) }}" <button class="btn btn-lg btn-primary btn-ale" type="submit">Make a Bid</button></a>
   </main>
