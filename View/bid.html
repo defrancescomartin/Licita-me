@@ -40,7 +40,7 @@
       <h5>End date:</h5>
     <div class="datepicker-bid">
         <div class="input-group date" id="datepicker2">
-            <input type="text" class="form-control">
+            <!--<input type="text" class="form-control">-->
 			{{ form.FinishDate(class_="form-control") }}
             <span class="input-group-append">
                 <span class="input-group-text bg-white d-block">
@@ -52,17 +52,21 @@
     </div>
     <h5>Amount:</h5>
     <div class="input-group">
-      <select class="form-select" id="inputGroupSelect01">
-        <option selected>Currency</option>
-        <option value="1">US$</option>
-        <option value="2">$</option>
-      </select>
-      <input type="text" class="form-control" aria-label="Text input with dropdown button">
+		{{ form.CurrencyCode(class_="form-select") }}
+      <!--<select class="form-select" id="inputGroupSelect01">-->
+        <!--<option selected>Currency</option>-->
+        <!--<option value="1">US$</option>-->
+        <!--<option value="2">$</option>-->
+      <!--</select>-->
+	  {{ form.TotalAmount(class_="form-select") }}
+      <!--<input type="text" class="form-control" aria-label="Text input with dropdown button">-->
     </div>
     <div class="mb-3 m-4">
-      <input class="form-control form-control-sm" id="formFileSm" type="file">
+		{{ form.files(class_="form-control form-control-sm") }}
+      <!--<input class="form-control form-control-sm" id="formFileSm" type="file">-->
     </div>
-    <button class="w-100 btn btn-lg btn-primary btn-ale" type="submit">Bid</button>
+	{{ form.submit(class_="w-100 btn btn-lg btn-primary btn-ale") }}
+    <!--<button class="w-100 btn btn-lg btn-primary btn-ale" type="submit">Bid</button>-->
     <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
   </form>
 </main>

@@ -210,6 +210,8 @@ class RequestForm(FlaskForm):
     FinishDate = StringField(validators=[InputRequired(),
                                      Length(min=4, max=45)],
                                      render_kw={"placeholder": "FinishDate"})
+    files = FileField(validators=[InputRequired()],
+                                     render_kw={"placeholder": "FileUpload"})
     submit = SubmitField('create_request')
 
 
@@ -303,6 +305,8 @@ def create_request():
     form = RequestForm()
     # The code to insert new request
     if form.validate_on_submit():
+        f = form.files['file']
+        f.save(secure_filename(f.filename))
         new_request = Request(id=current_user.id,
                               CompanyId=current_user.CompanyId,
                               StatusCode=0,
