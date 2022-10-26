@@ -240,6 +240,8 @@ def index():
 @app.route('/signin', methods=['GET', 'POST'],  strict_slashes=False)
 def signin():
     form = SigninForm()
+    if current_user.is_authenticated:
+        redirect(url_for('home'))
     if form.validate_on_submit():
         user = User.query.filter_by(CustomerName=form.CustomerName.data).first()
         if user:
