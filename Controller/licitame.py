@@ -212,7 +212,7 @@ class RequestForm(FlaskForm):
                                      Length(min=4, max=45)],
                                      render_kw={"placeholder": "FinishDate"})
     files = FileField(validators=[FileRequired()],
-	                                 render_kw={"placeholder": "FileUpload"})
+                                     render_kw={"placeholder": "FileUpload"})
     submit = SubmitField('create_request')
 
 
@@ -232,7 +232,7 @@ class BidForm(FlaskForm):
                                      Length(min=1, max=15)],
                                      render_kw={"placeholder": "TotalAmount"})
     files = FileField(validators=[FileRequired()],
-	                                 render_kw={"placeholder": "FileUpload"})
+                                     render_kw={"placeholder": "FileUpload"})
     submit = SubmitField('create_bid')
 
 
@@ -345,10 +345,10 @@ def request_by(request_id):
 @app.route('/download_bid/<int:bid_id>', methods=['GET', 'POST'], strict_slashes=False)
 @login_required
 def download_bid(bid_id):
-	bid = Request.query.filter_by(BidId=bid_id).first()
+    bid = Request.query.filter_by(BidId=bid_id).first()
     if request.method == 'POST':
         return send_from_directory(app.config['UPLOAD_FOLDER'], bid.FileId)
-	return redirect(url_for('home'))
+    return redirect(url_for('home'))
 
 @app.route('/create_bid/<int:request_id>', methods=['GET', 'POST'], strict_slashes=False)
 @login_required
@@ -361,7 +361,7 @@ def create_bid(request_id):
         new_bid = Bid(id=current_user.id,
                       CompanyId=current_user.CompanyId,
                       StatusCode=0,
-					  BidNumber=current_user.id,
+                      BidNumber=current_user.id,
                       TotalAmount=form.TotalAmount.data,
                       StartingDate=form.StartingDate.data,
                       FinishDate=form.FinishDate.data,
