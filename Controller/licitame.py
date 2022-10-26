@@ -316,11 +316,14 @@ def create_request():
         return redirect(url_for('home'))
     return render_template('request.html', form=form)
 
-@app.route('/request/<request_id>', strict_slashes=False)
+@app.route('/request/<request_id>', methods=['GET', 'POST'],  strict_slashes=False)
 @login_required
 def request_by(request_id):
     # View Request by ID
+
     req = Request.query.filter_by(RequestId=request_id).first()
+    if request.method == 'POST':
+        return send_from_directory(app.config['UPLOAD_PATH'], req.FileId)
     comp = Company.query.filter_by(CompanyId=req.CompanyId).first()
     print(f'Id{req.RequestId}, Title{req.Title}, Desc{req.Description}')
 
