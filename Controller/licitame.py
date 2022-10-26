@@ -294,13 +294,16 @@ def create_request():
     form = RequestForm()
     # The code to insert new request
     if form.validate_on_submit():
+        f = form.files['file']
+        f.save(secure_filename(f.filename))
         new_request = Request(id=current_user.id,
                               CompanyId=current_user.CompanyId,
                               StatusCode=0,
                               Title=form.Title.data,
                               Description=form.Description.data,
                               Category=form.Category.data,
-                              FinishDate=form.FinishDate.data,)
+                              FinishDate=form.FinishDate.data,
+                              FileId=secure_filename(f.filename))
         db.session.add(new_request)
         db.session.commit()
         # Must redirect to view "Request by id" (request just created)
@@ -328,19 +331,18 @@ def create_bid(request_id):
     form = BidForm()
     # The code to insert new request
     if form.validate_on_submit():
+        f = form.files['file']
+        f.save(secure_filename(f.filename))
         new_bid = Bid(id=current_user.id,
                       CompanyId=current_user.CompanyId,
                       StatusCode=0,
                       TotalAmount=form.TotalAmount.data,
                       StartingDate=form.StartingDate.data,
                       FinishDate=form.FinishDate.data,
-                      CurrencyCode=form.CurrencyCode.data)
+                      CurrencyCode=form.CurrencyCode.data,
+                      FileId=secure_filename(f.filename))
         db.session.add(new_bid)
         db.session.commit()
-        if request.method == 'POST':
-            f = request.files['file']
-            f.save(secure_filename(f.filename))
-            return "File saved successfully"
         # Must redirect to view "Bid by id" (request just created)
         return redirect(url_for('home'))
     return render_template('bid.html', request_id=request_id, form=form)
