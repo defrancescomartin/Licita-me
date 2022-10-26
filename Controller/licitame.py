@@ -345,7 +345,7 @@ def request_by(request_id):
 @app.route('/download_bid/<int:bid_id>', methods=['GET', 'POST'], strict_slashes=False)
 @login_required
 def download_bid(bid_id):
-    bid = Request.query.filter_by(BidId=bid_id).first()
+    bid = Bid.query.filter_by(BidId=bid_id).first()
     if request.method == 'POST':
         return send_from_directory(app.config['UPLOAD_FOLDER'], bid.FileId)
     return redirect(url_for('home'))
