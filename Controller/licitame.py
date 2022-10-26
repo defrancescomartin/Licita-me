@@ -331,7 +331,7 @@ def request_by(request_id):
 
     req = Request.query.filter_by(RequestId=request_id).first()
     if request.method == 'POST':
-        return send_from_directory(app.config['UPLOAD_PATH'], req.FileId)
+        return send_from_directory(app.config['UPLOAD_FOLDER'], req.FileId)
     comp = Company.query.filter_by(CompanyId=req.CompanyId).first()
     print(f'Id{req.RequestId}, Title{req.Title}, Desc{req.Description}')
 
@@ -341,6 +341,14 @@ def request_by(request_id):
         print("Second request")
         return render_template('my_request.html', req=req, bids=bids)
     return render_template('request_inside.html', req=req, comp=comp)
+
+@app.route('/download_bid/<int:bid_id>', methods=['GET', 'POST'], strict_slashes=False)
+@login_required
+def download_bid(bid_id):
+	bid = Request.query.filter_by(BidId=bid_id).first()
+    if request.method == 'POST':
+        return send_from_directory(app.config['UPLOAD_FOLDER'], bid.FileId)
+	return redirect(url_for('home'))
 
 @app.route('/create_bid/<int:request_id>', methods=['GET', 'POST'], strict_slashes=False)
 @login_required
