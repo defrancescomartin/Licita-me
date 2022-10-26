@@ -11,9 +11,6 @@
 
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
   <div class="container-fluid">
-	  {% if current_user.is_authenticated %}
-	    Hi {{ current_user.CustomerName }}!
-	  {% endif %}
     <a class="navbar-brand" href=""><img class="headerlogo" src="View/images/logo3prueba.png" alt=""></a>
     <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -25,14 +22,14 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Filter Dashboard</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#"><input type="checkbox"> Carpintero
-              <li><a class="dropdown-item" href="#"><input type="checkbox"> Electricista
-              <li><a class="dropdown-item" href="#"><input type="checkbox"> Capataz
-              <li><a class="dropdown-item" href="#"><input type="checkbox"> Balastro
-              <li><a class="dropdown-item" href="#"><input type="checkbox"> Ingeniero estructural
-              <li><a class="dropdown-item" href="#"><input type="checkbox"> Director de cantera
-              <li><a class="dropdown-item" href="#"><input type="checkbox"> Urbanista
-              <li><a class="dropdown-item" href="#"><input type="checkbox"> Operador de grúa
+              <li><a class="dropdown-item" href="#"><input type="checkbox"> Carpintero</a></li>
+              <li><a class="dropdown-item" href="#"><input type="checkbox"> Electricista</a></li>
+              <li><a class="dropdown-item" href="#"><input type="checkbox"> Capataz</a></li>
+              <li><a class="dropdown-item" href="#"><input type="checkbox"> Balastro</a></li>
+              <li><a class="dropdown-item" href="#"><input type="checkbox"> Ingeniero estructural</a></li>
+              <li><a class="dropdown-item" href="#"><input type="checkbox"> Director de cantera</a></li>
+              <li><a class="dropdown-item" href="#"><input type="checkbox"> Urbanista</a></li>
+              <li><a class="dropdown-item" href="#"><input type="checkbox"> Operador de grúa</a></li>
             </ul>
           </li>
         </li>
@@ -51,7 +48,9 @@
         </li>
         <span class="badge text-bg-light m-2 p-2">6</span></a>
         <li class="nav-item">
-          <a class="nav-link" href="#">Profile</a>
+			{% if current_user.is_authenticated %}
+          <a class="nav-link" href="#">{{ current_user.CustomerName }}</a>
+		  {% endif %}
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
@@ -70,21 +69,10 @@
     </div>
   </div>
 </nav>
-
-<div class="nav-scroller bg-body shadow-sm">
-  <nav class="nav" aria-label="Secondary navigation">
-    <a class="nav-link" href="#">
-      Following
-      <span class="badge text-bg-light rounded-pill align-text-bottom">27</span>
-    </a>
-    <a class="nav-link" href="#">Explore</a>
-  </nav>
-</div>
-
 <main class="container">
   <div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm justify-content-center">
       <a class="nav-link" href="{{ url_for('create_request') }}"><button class="btn btn-outline-success btn-request" type="submit">Make a Request</button></a>
-      <a class="nav-link" href=""><button class="btn btn-outline-success btn-request m-1" type="submit">My requests</button></a>
+      <a class="nav-link" href="{{ url_for('my_requests') }}"><button class="btn btn-outline-success btn-request m-1" type="submit">My requests</button></a>
   </div>
 
   <div class="my-3 p-3 bg-body rounded shadow-sm">

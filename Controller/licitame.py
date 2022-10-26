@@ -275,6 +275,12 @@ def home():
     requests = Request.query.all()
     return render_template ('home.html', requests=requests)
 
+@app.route('/my_requests', strict_slashes=False)
+@login_required
+def my_requests():
+    requests = Request.query.filter_by(id=current_user.id).all()
+    return render_template ('home.html', requests=requests)
+
 @app.route("/logout")
 @login_required
 def logout():
@@ -332,12 +338,13 @@ def create_bid(request_id):
                       TotalAmount=form.TotalAmount.data,
                       StartingDate=form.StartingDate.data,
                       FinishDate=form.FinishDate.data,
-                      CurrencyCode=form.CurrencyCode.data)
+                      CurrencyCode=form.CurrencyCode.data
+                      RequestId=request_id)
         db.session.add(new_bid)
         db.session.commit()
         # Must redirect to view "Bid by id" (request just created)
         return redirect(url_for('home'))
-    return render_template('bid.html', request_id=request_id, form=form)
+    return render_template('bid.html', form=form)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port = 5000, debug = True)
