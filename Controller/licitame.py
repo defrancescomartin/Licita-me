@@ -336,7 +336,7 @@ def create_bid(request_id):
         db.session.commit()
         # Must redirect to view "Bid by id" (request just created)
         return redirect(url_for('home'))
-    return render_template('bid.html', request_id=request_id)
+    return render_template('bid.html', request_id=request_id, form=form)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port = 5000, debug = True)
