@@ -1,3 +1,11 @@
+header.nav.navbar navbar-expand-md navbar-dark fixed-top bg-dark{
+    padding-bottom: 0px;
+}
+
+section.h3.display-4 text-center mt-5 mb-3 {
+    font-family: "Montserrat", sans-serif;
+}
+
 .members {
     font-family: "Montserrat", sans-serif;
     color: #8d97ad;
@@ -14,7 +22,7 @@
 }
 
 .members .font-weight-medium {
-    font-weight: 500;
+    font-weight: 100;
 }
 
 .members .bg-light {
@@ -27,11 +35,11 @@
 }
 
 .members .pro-pic {
-    min-height: 100px;
+    min-height: 50px;
 }
 
 .members .pro-pic .card-img-overlay ul {
-    top: 100%;
+    top: 50%;
 }
 
 .members .pro-pic .card-img-overlay ul li a {
@@ -151,4 +159,8 @@ a {
 div.card h-100 {
     background-color: #60102030;
 
+}
+
+footer mt-auto py-3 footer{
+    background-color: #661020;
 }

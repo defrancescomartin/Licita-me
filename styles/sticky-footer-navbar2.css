@@ -1,6 +1,7 @@
 body {
   background-color: #66102018;
-  padding-top: 30px;
+  padding-top: 20px;
+  padding-bottom: 60px;
 }
 main > .container {
   padding: 0px 15px 0;
