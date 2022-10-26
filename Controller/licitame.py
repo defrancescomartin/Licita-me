@@ -308,7 +308,7 @@ def create_request():
     form = RequestForm()
     # The code to insert new request
     if form.validate_on_submit():
-        f = form.files['file']
+        f = form.files.data
         f.save(secure_filename(f.filename))
         new_request = Request(id=current_user.id,
                               CompanyId=current_user.CompanyId,
@@ -347,7 +347,7 @@ def create_bid(request_id):
     form = BidForm()
     # The code to insert new request
     if form.validate_on_submit():
-        f = form.files['file']
+        f = form.files.data
         f.save(secure_filename(f.filename))
         new_bid = Bid(id=current_user.id,
                       CompanyId=current_user.CompanyId,
