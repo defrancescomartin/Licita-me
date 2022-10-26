@@ -41,7 +41,7 @@
         <li>Job</li>
         <li>Job</li>
       </div>
-    <a href="{{ url_for('request_by') }}{{ req.RequestId }}" <button class="btn btn-lg btn-primary btn-ale" type="submit">Make a Bid</button></a>
+    <a href="{{ url_for('request_by', request_id=req.RequestId) }}" <button class="btn btn-lg btn-primary btn-ale" type="submit">Make a Bid</button></a>
   </main>
   <footer class="pt-5 my-5 border-top">
   </footer>
