@@ -313,6 +313,7 @@ def create_request():
         new_request = Request(id=current_user.id,
                               CompanyId=current_user.CompanyId,
                               StatusCode=0,
+							  BidNumber=current_user.id,
                               Title=form.Title.data,
                               Description=form.Description.data,
                               Category=form.Category.data,
