@@ -48,7 +48,7 @@
               <li>End date: {{ bid.FinishDate }}</li>
             </ul>
             <div class="mb-4">
-				<form method="post">
+				<form method="post" action="{{ url_for('static', bid_id=bid.BidId) }}">
 		          <button class="btn btn-primary btn-lg px-4" type="submit">Download file</button>
 		        </form>
             </div>
