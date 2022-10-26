@@ -233,7 +233,7 @@ class BidForm(FlaskForm):
                                      render_kw={"placeholder": "TotalAmount"})
     files = FileField(validators=[FileRequired()],
 	                                 render_kw={"placeholder": "FileUpload"})
-    submit = SubmitField('create_request')
+    submit = SubmitField('create_bid')
 
 
 @app.route('/', strict_slashes=False)
