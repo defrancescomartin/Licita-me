@@ -305,11 +305,11 @@ def create_request():
         return redirect(url_for('home'))
     return render_template ('request.html', form=form)
 
-@app.route('/request/<int:request_id>', strict_slashes=False)
+@app.route('/request', strict_slashes=False)
 @login_required
-def request_by(request_id):
+def request_by():
         # View Request by ID
-        if request_id:
+        if request.args.get('request_id'):
             req = Request.query.filter_by(RequestId=request_id).first()
             if req.id == current_user.id:
                 bids = Bid.query.filter_by(RequestId=request_id).all()
