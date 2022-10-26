@@ -338,7 +338,7 @@ def create_bid(request_id):
                       TotalAmount=form.TotalAmount.data,
                       StartingDate=form.StartingDate.data,
                       FinishDate=form.FinishDate.data,
-                      CurrencyCode=form.CurrencyCode.data
+                      CurrencyCode=form.CurrencyCode.data,
                       RequestId=request_id)
         db.session.add(new_bid)
         db.session.commit()
