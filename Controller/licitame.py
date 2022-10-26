@@ -279,6 +279,8 @@ def home():
 @login_required
 def my_requests():
     requests = Request.query.filter_by(id=current_user.id).all()
+    for req in requests:
+        print(f'Id{req.RequestId}, Title{req.Title}, Desc{req.Description}')
     return render_template ('home.html', requests=requests)
 
 @app.route("/logout")
