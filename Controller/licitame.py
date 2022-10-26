@@ -228,6 +228,8 @@ class BidForm(FlaskForm):
     TotalAmount = StringField(validators=[InputRequired(),
                                      Length(min=1, max=15)],
                                      render_kw={"placeholder": "TotalAmount"})
+    files = FileField(validators=[InputRequired()],
+                                     render_kw={"placeholder": "FileUpload"})
     submit = SubmitField('create_request')
 
 
@@ -273,15 +275,16 @@ def sign_up():
 @login_required
 def home():
     requests = Request.query.all()
-    return render_template ('home.html', requests=requests)
+    return render_template('home.html', requests=requests)
 
 @app.route('/my_requests', strict_slashes=False)
 @login_required
 def my_requests():
     requests = Request.query.filter_by(id=current_user.id).all()
+    print('test before')
     for req in requests:
         print(f'Id{req.RequestId}, Title{req.Title}, Desc{req.Description}')
-    return render_template ('home.html', requests=requests)
+    return render_template('home.html', requests=requests)
 
 @app.route("/logout")
 @login_required
@@ -311,7 +314,7 @@ def create_request():
         db.session.commit()
         # Must redirect to view "Request by id" (request just created)
         return redirect(url_for('home'))
-    return render_template ('request.html', form=form)
+    return render_template('request.html', form=form)
 
 @app.route('/request/<request_id>', strict_slashes=False)
 @login_required
@@ -334,6 +337,8 @@ def create_bid(request_id):
     form = BidForm()
     # The code to insert new request
     if form.validate_on_submit():
+        f = form.files['file']
+        f.save(secure_filename(f.filename))
         new_bid = Bid(id=current_user.id,
                       CompanyId=current_user.CompanyId,
                       StatusCode=0,
@@ -341,7 +346,8 @@ def create_bid(request_id):
                       StartingDate=form.StartingDate.data,
                       FinishDate=form.FinishDate.data,
                       CurrencyCode=form.CurrencyCode.data,
-                      RequestId=request_id)
+                      RequestId=request_id,
+                      FileId=secure_filename(f.filename))
         db.session.add(new_bid)
         db.session.commit()
         # Must redirect to view "Bid by id" (request just created)
