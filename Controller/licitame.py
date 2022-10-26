@@ -211,7 +211,7 @@ class RequestForm(FlaskForm):
     FinishDate = StringField(validators=[InputRequired(),
                                      Length(min=4, max=45)],
                                      render_kw={"placeholder": "FinishDate"})
-    files = FileField(validators=[InputRequired()],
+    files = FileField(validators=[FileRequired()],
 	                                 render_kw={"placeholder": "FileUpload"})
     submit = SubmitField('create_request')
 
@@ -231,7 +231,7 @@ class BidForm(FlaskForm):
     TotalAmount = StringField(validators=[InputRequired(),
                                      Length(min=1, max=15)],
                                      render_kw={"placeholder": "TotalAmount"})
-    files = FileField(validators=[InputRequired()],
+    files = FileField(validators=[FileRequired()],
 	                                 render_kw={"placeholder": "FileUpload"})
     submit = SubmitField('create_request')
 

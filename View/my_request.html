@@ -24,30 +24,28 @@
       </header>
 
   <main>
-  {%block %}
     <div class="text-center p-5 m-5">
       <h1 class="display-4 fw-normal">{{ request.Title }}</h1>
       <p class="fs-5 text-muted">Brief description of the project:
         {{ request.Description }}
       </p>
     </div>
-	{%endblock%}
     <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
 	{%for bid in bids %}
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm border-primary">
           <div class="card-header py-3 text-bg-primary border-primary">
-            <h4 class="my-0 fw-normal">company Na{{ companyName }}</h4>
-            <h5 class="small">bid n: 328123812</h5>
+            <h4 class="my-0 fw-normal">company Name</h4>
+            <h5 class="small">Bid n: {{bid.BidId}}</h5>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">Total amount</h1>
+            <h1 class="card-title pricing-card-title">Total amount: {% if  bid.CurrencyCode == 1 %}US${% else %}U${% endif %} {{ bid.TotalAmount }}</h1>
             <ul class="list-unstyled mt-3 mb-4">
               <li>Start date: {{ bid.StartingDate }}</li>
               <li>End date: {{ bid.FinishDate }}</li>
             </ul>
             <div class="mb-4">
-              <a href="../examples/" class="btn btn-primary">Download file</a>
+              <button class="btn btn-primary btn-lg px-4" type="submit">Download file</button>
             </div>
             <button type="button" class="w-100 btn btn-lg btn-primary">Contact</button>
             <button type="button" class="w-100 btn btn-lg btn-primary mt-3">Accept</button>
@@ -55,46 +53,6 @@
         </div>
       </div>
 	  {%endfor%}
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-primary">
-          <div class="card-header py-3 text-bg-primary border-primary">
-            <h4 class="my-0 fw-normal">Company name</h4>
-            <h5 class="small">bid n: 645464546</h5>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">Total amount</h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>Start date: 23/10/2022</li>
-              <li>End date: 4/6/2023</li>
-            </ul>
-            <div class="mb-4">
-              <a href="../examples/" class="btn btn-primary">Download file</a>
-            </div>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Contact</button>
-            <button type="button" class="w-100 btn btn-lg btn-primary mt-3">Accept</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-primary">
-          <div class="card-header py-3 text-bg-primary border-primary">
-            <h4 class="my-0 fw-normal">Company name</h4>
-            <h5 class="small">bid n: 9879643</h5>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">Total amount</h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>Start date: 23/10/2022</li>
-              <li>End date: 4/6/2023</li>
-            </ul>
-            <div class="mb-4">
-              <a href="../examples/" class="btn btn-primary">Download file</a>
-            </div>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Contact</button>
-            <button type="button" class="w-100 btn btn-lg btn-primary mt-3">Accept</button>
-          </div>
-        </div>
-      </div>
     </div>
 	<script src="View/js/bootstrap.bundle.min.js"></script>
   </body>
