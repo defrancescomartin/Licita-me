@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Licita-Me</title>
+
+
+<link href="View/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="View/css/request.css" rel="stylesheet">
+
+  </head>
+  <body class="text-center align-middle">
+
+<main class="form-request m-auto d-flex align-middle">
+ <form method="POST">
+	 {{ form.hidden_tag() }}
+    <img class="mb-4" src="View/images/logo11.png" alt="" width="200" height="200">
+    <h1 class="h3 mb-3 fw-normal">Create Your Request</h1>
+
+    <div class="form-floating">
+     <!-- <input type="text" class="form-control" id="floatingInput" placeholder="Project title" required> -->
+	  {{ form.Title(class_="form-control") }}
+    </div>
+
+    <div class="form-floating">
+        <!-- <select name="categoria" id="categoria" placeholder="Category" class="form-control" required>
+            <option value="1">Obra Civil</option>
+            <option value="2">Carpintería</option>
+            <option value="3">Electrica</option>
+            <option value="4">Sanitaria</option>
+            <option value="5">Ingeniería</option>
+        </select>-->
+		{{ form.Category(class_="form-control") }}
+    </div>
+
+    <div class="form-floating">
+<!--    <input type="text" placeholder="Deadline" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" required/>-->
+	{{ form.FinishDate(class_="form-control") }}
+    </div>
+
+    <div class="comment">
+<!--	<label for="comment">Project description:</label>
+        <textarea class="form-control" rows="4" id="comment" required>
+	</textarea>-->
+	{{ form.Description(class_="form-control") }}
+      </div>
+
+      <div class="form-floating">
+<!--<input type="file" placeholder="File upload" name="adjunto" accept="application/pdf, .doc, .docx" multiple required/>-->
+      </div>
+
+    <!--<button class="w-100 btn btn-lg btn-primary btn-ale" type="submit">Create</button>-->
+	{{ form.submit(class_="w-100 btn btn-lg btn-primary btn-ale") }}
+    <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+  </form>
+</main>
+<script src="View/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
