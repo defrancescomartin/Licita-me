@@ -201,18 +201,20 @@ class SigninForm(FlaskForm):
 # Create Request Form validators
 class RequestForm(FlaskForm):
     Title = StringField(validators=[InputRequired(),
-                                     Length(min=3, max=45)],
+                                     Length(min=3, max=45),
+                                     ValidationError('Title error')],
                                      render_kw={"placeholder": "Title"})
     Description = StringField(validators=[InputRequired(),
-                                     Length(min=3, max=64000)],
+                                     Length(min=3, max=64000),
+                                     ValidationError('Description error')],
                                      render_kw={"placeholder": "Description"})
     Category = StringField(validators=[InputRequired(),
-                                     Length(min=3, max=45)],
+                                     Length(min=3, max=45), ValidationError('Category error')],
                                      render_kw={"placeholder": "Category"})
-    FinishDate = StringField(validators=[InputRequired(),
+    FinishDate = StringField(validators=[InputRequired(), ValidationError('Format date error'),
                                      Length(min=4, max=45)],
                                      render_kw={"placeholder": "FinishDate"})
-    files = FileField(validators=[FileRequired()],
+    files = FileField(validators=[FileRequired(), ValidationError('file error')],
                                      render_kw={"placeholder": "FileUpload"})
     submit = SubmitField('create_request')
 
