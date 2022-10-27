@@ -9,7 +9,7 @@ from flask_login import UserMixin, login_user, LoginManager, login_required, log
 from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired
-from wtforms import StringField, PasswordField, SubmitField, FileField
+from wtforms import StringField, PasswordField, SubmitField, FileField, DateField, TextAreaField
 from wtforms.validators import InputRequired, Length, ValidationError, EqualTo
 from datetime import datetime
 import os
@@ -176,7 +176,7 @@ class RegisterForm(FlaskForm):
 #                           InputRequired(),
 #                           Length(min=4, max=45)],
 #                           render_kw={"placeholder": "City"})
-    submit = SubmitField('sign up')
+    submit = SubmitField('Sign up')
 
 def add_relationship(self, RUT):
     existing_Company_RUT = Company.query.filter_by(RUT=RUT.data).first()
@@ -204,18 +204,14 @@ class RequestForm(FlaskForm):
     Title = StringField(validators=[InputRequired(),
                                      Length(min=3, max=45)],
                                      render_kw={"placeholder": "Title"})
-    Description = StringField(validators=[InputRequired(),
-                                     Length(min=3, max=64000)],
-                                     render_kw={"placeholder": "Description", "id":"Desc"})
+    Description = TextAreaField()
     Category = StringField(validators=[InputRequired(),
                                      Length(min=3, max=45)],
                                      render_kw={"placeholder": "Category"})
-    FinishDate = StringField(validators=[InputRequired(),
-                                     Length(min=4, max=45)],
-                                     render_kw={"placeholder": "FinishDate"})
+    FinishDate = DateField('Finish Date', format='%Y-%m-%d' )
     files = FileField(validators=[FileRequired()],
                                      render_kw={"placeholder": "FileUpload"})
-    submit = SubmitField('create_request')
+    submit = SubmitField('Create request')
 
 
 # Create Bid Form validators
@@ -235,7 +231,7 @@ class BidForm(FlaskForm):
                                      render_kw={"placeholder": "TotalAmount"})
     files = FileField(validators=[FileRequired()],
                                      render_kw={"placeholder": "FileUpload"})
-    submit = SubmitField('create_bid')
+    submit = SubmitField('Create bid')
 
 
 @app.route('/', strict_slashes=False)

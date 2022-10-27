@@ -58,9 +58,7 @@
 <!--	<label for="comment">Project description:</label>
         <textarea class="form-control" rows="4" id="comment" required>
 	-->
-	{{ form.Description(class_="form-control") }}
-	<textarea class="form-control" rows="4" id="Desc"></textarea>
-      </div>
+	{{ form.Description(class_="form-control" rows="4") }}
       <h5>File upload</h5>
       <div class="form-floating">
 		  {{ form.files(class_="form-control") }}
