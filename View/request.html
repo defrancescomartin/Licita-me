@@ -8,7 +8,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <link href="View/css/bootstrap.min.css" rel="stylesheet">
 	<link href="View/css/bid.css" rel="stylesheet">
-    <link href="View/css/request.css" rel="stylesheet">
   </head>
   <body class="text-center align-middle gradient-custom">
 	  <header>
@@ -19,7 +18,7 @@
       </nav>
     </header>
 
-<main class="form-request m-auto d-flex align-middle">
+<main class="form-signin m-auto d-flex align-middle">
  <form method="POST" enctype="multipart/form-data">
 	 {{ form.hidden_tag() }}
     <img class="mb-4" src="View/images/requestpic.png" alt="Reqest png" width="200" height="200">
@@ -58,8 +57,10 @@
     <div class="comment">
 <!--	<label for="comment">Project description:</label>
         <textarea class="form-control" rows="4" id="comment" required>
-	</textarea>-->
-	{{ form.Description(class_="form-control") }}
+	-->
+	{{ form.Description(class_="form-control id_="Desc") }}
+	<textarea class="form-control" rows="4" id="Desc" required>
+		</textarea>
       </div>
       <h5>File upload</h5>
       <div class="form-floating">
