@@ -14,9 +14,9 @@
 <header>
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-      <img class="headerlogo" src="static/images/logo3prueba.png" alt="" width="200px">
+      <img class="headerlogo" src="Views/images/logo3prueba.png" alt="" width="200px">
     <div class="box">
-          <button class="btn btn-outline-success buttons2" type="button">Sign in</button>
+          <a href="{{ url_for('signin') }}"><button class="btn btn-outline-success buttons2" type="button">Sign in</button></a>
           <button class="btn btn-outline-success buttons2" type="button">Sign up</button>
     </div>
       </div>
