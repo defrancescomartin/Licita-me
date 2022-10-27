@@ -12,6 +12,7 @@ from flask_wtf.file import FileField, FileRequired
 from wtforms import StringField, PasswordField, SubmitField, FileField
 from wtforms.validators import InputRequired, Length, ValidationError, EqualTo
 from datetime import datetime
+import os
 from werkzeug.utils import secure_filename
 
 
@@ -23,7 +24,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Adding a secret key
 app.config['SECRET_KEY']='Pass2022'
 # Config the pool for uploads
-app.config['UPLOAD_FOLDER']='./uploads'
+app.config['UPLOAD_FOLDER']='uploads'
 # Config max upload file size to 10MB
 app.config['MAX_CONTENT_PATH']= 1024*1024*10
 # Create the database instance
@@ -331,7 +332,8 @@ def request_by(request_id):
 
     req = Request.query.filter_by(RequestId=request_id).first()
     if request.method == 'POST':
-        return send_from_directory(app.config['UPLOAD_FOLDER'], req.FileId)
+        uploads = os.path.join(current_app.root_path, app.config['UPLOAD_FOLDER'])
+        return send_from_directory(directory=uploads, filename=req.FileId)
     comp = Company.query.filter_by(CompanyId=req.CompanyId).first()
     print(f'Id{req.RequestId}, Title{req.Title}, Desc{req.Description}')
 
