@@ -24,6 +24,7 @@
 	  {{ form.hidden_tag() }}
 	<img class="mb-4" src="View/images/offerpic.png" alt="Bid png" width="150" height="150">
 	<h1 class="h3 mb-3 fw-normal">Create Your Offer</h1>
+	<label for="{{ form.StartingDate.id }}">Valid from</label>
     <div class="row form-group form-floating">
     <div class="datepicker-bid">
         <div class="input-group date" id="datepicker">
@@ -34,10 +35,10 @@
                    <i class="fa fa-calendar"></i>
                     </span>
                 </span>
-				<label for="{{ form.StartingDate.id }}">Valid from</label>
             </div>
         </div>
     </div>
+	<label for="{{ form.FinishDate.id }}">Expiration date</label>
     <div class="row form-group form-floating">
     <div class="datepicker-bid">
         <div class="input-group date" id="datepicker2">
@@ -48,13 +49,12 @@
                    <i class="fa fa-calendar"></i>
                     </span>
                 </span>
-				<label for="{{ form.FinishDate.id }}">Expiration date</label>
             </div>
         </div>
     </div>
+	<label for="{{ form.TotalAmount.id }}">Total amount</label>
     <div class="input-group">
 		{{ form.CurrencyCode(class_="form-select") }}
-		<label for="{{ form.CurrencyCode.id }}">Currency</label>
       <!--<select class="form-select" id="inputGroupSelect01">-->
         <!--<option selected>Currency</option>-->
         <!--<option value="1">US$</option>-->
@@ -62,11 +62,10 @@
       <!--</select>-->
 	  {{ form.TotalAmount(class_="form-select") }}
       <!--<input type="text" class="form-control" aria-label="Text input with dropdown button">-->
-      <label for="{{ form.TotalAmount.id }}">Total amount</label>
     </div>
+	<label for="{{ form.files.id }}">Upload your offer</label>
     <div class="mb-3 m-4">
 		{{ form.files(class_="form-control form-control-sm") }}
-		<label for="{{ form.files.id }}">Upload your offer</label>
       <!--<input class="form-control form-control-sm" id="formFileSm" type="file">-->
     </div>
 	{{ form.submit(class_="w-100 btn btn-lg btn-primary btn-ale") }}
