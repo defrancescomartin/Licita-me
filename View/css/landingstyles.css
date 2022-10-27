@@ -77,6 +77,10 @@ ul.social-network li {
     background-color: #33ccff;
 }
 
+.social-network a.icoGithub:hover {
+    background-color: #444444;
+}
+
 .social-network a.icoJoomla:hover {
     background-color: #BD3518;
 }
