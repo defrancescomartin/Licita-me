@@ -180,3 +180,6 @@ footer mt-auto py-3 footer{
 .card-img-top {
 	width: auto;
 }
+.card-body {
+	min-height: 250px;
+}
