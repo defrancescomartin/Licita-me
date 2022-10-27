@@ -4,48 +4,282 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Licita-Me</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="View/css/bootstrap.min.css">
-
-    <link href="View/css/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="View/css/bootstrap.min.css" rel="stylesheet">
+    <link href="View/css/sticky-footer-navbar2.css" rel="stylesheet">
+    <link href="View/css/landingstyles.css" rel="stylesheet">
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
-  <body class="d-flex flex-column h-100">
+  <body class="d-flex flex-column h-100" style="background-color: rgb(219, 211, 211);">
 
 <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-	    <img class="headerlogo" src="View/images/logo3prueba.png" alt="">
+      <img class="headerlogo" src="View/images/logo3prueba.png" alt="" width="200px">
     <div class="box">
-          <a href="{{ url_for('signin') }}">
-	        <button class="btn btn-outline-success buttons2" type="button">Sign in</button>
-          </a>
-          <a href="{{ url_for('sign_up') }}">
-	        <button class="btn btn-outline-success buttons2" type="button">Sign up</button>
-          </a>
+          <button class="btn btn-outline-success buttons2" type="button">Sign in</button>
+          <button class="btn btn-outline-success buttons2" type="button">Sign up</button>
     </div>
       </div>
     </div>
   </nav>
 </header>
-<div class="imagelogo">
-	<img src="View/images/logo11prueba.png" width="500">
+
+<section id="services" class="container">
+    <h3 class="display-4 text-center mt-5 mb-3" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color:rgb(78, 73, 73);">Find the project that fits your needs</h3>
+
+    <div class="row text-center">
+       <div class="col-md-4 mb-4">
+          <div class="card h-100">
+             <img class="card-img-top" src="View/images/requestpic.png" alt="Request screenshot">
+             <div class="card-body">
+                <h4 class="card-title">Request the service you need</h4>
+                <p class="card-text">If you are a building company this section is for you.
+                    Here you we'll be able to stablish the requirements for the job you want to be done!</p>
+             </div>
+             <div class="card-footer py-4">
+                <a href="#" class="btn btn-secondary">Go to request page &raquo;</a>
+             </div>
+          </div>
+       </div>
+
+       <div class="col-md-4 mb-4">
+          <div class="card h-100">
+             <img class="card-img-top" src="View/images/offerpic.png" alt="Bid screenshot">
+             <div class="card-body">
+                <h4 class="card-title">Offer your services</h4>
+                   <p class="card-text">Does your company provides a service? Are you a construction supplier? This is the section for you!
+                    Here you can see the current projects available, elaborate a budget, and make an offer to the requestant!</p>
+             </div>
+             <div class="card-footer py-4">
+                <a href="#" class="btn btn-secondary">Start the process &raquo;</a>
+             </div>
+          </div>
+       </div>
+
+       <div class="col-md-4 mb-4">
+          <div class="card h-100">
+             <img class="card-img-top" src="View/images/comparisonpic.png" width="200px" alt="Offerspage screenshot">
+             <div class="card-body">
+                <h4 class="card-title">Compare and choose the best option!</h4>
+                <p class="card-text">In this section you can compare all the offers that were sent to ypur company project.
+                    You can compare your options and choose the one that suits your requirements!
+                </p>
+             </div>
+             <div class="card-footer py-4">
+                <a href="#" class="btn btn-secondary">Go to your requests &raquo;</a>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+
+
+
+
+
+<div class="py-5 bg-light members" style="background-color>: rgb(102, 82, 82);">
+    <div class="container">
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-7 text-center">
+                <h1 class="display-5 mb-3">Meet Our Team</h1>
+                <p class="lead">In Licita-me we have a young team that is taking the first steps in the industry.</p>
+            </div>
+        </div>
+
+        <!--Seba-->
+        <div class="row">
+            <!-- column  -->
+            <div class="col-lg-6">
+                <div class="card shadow border-0 mb-4">
+                    <!-- Row -->
+                    <div class="row no-gutters">
+                        <div class="col-md-5 pro-pic" style="background:url(View/images/seba.jpg) center center no-repeat">
+                            <div class="card-img-overlay">
+                                <ul class="list-inline position-relative text-center">
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-facebook"></i></a></li>
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-twitter"></i></a></li>
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-instagram"></i></a></li>
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-behance"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-7 bg-white">
+                            <div class="p-4">
+                                <h6 class="mb-3">Sebastián Freire - Full Stack Developer</h6>
+                                <p>The team's most experienced member, Programming and Electronics Technician for over 10 years, Full Stack Software Engineer student at Holberton. Self-taught learner and technology enthusiast.
+                                </p>
+                                <div class="col-md-12 text-center">
+                                    <ul class="social-network social-circle">
+                                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#" class="icoJoomla" title="Joomla"><i class="fa fa-joomla"></i></a></li>
+                                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- Row -->
+                </div>
+            </div> <!-- column  -->
+
+            <!--Martin-->
+            <div class="col-lg-6">
+                <div class="card shadow border-0 mb-4">
+                    <!-- Row -->
+                    <div class="row no-gutters card-shadow">
+                        <div class="col-md-5 pro-pic" style="background:url(View/images/martin.jpg) center center no-repeat">
+                            <div class="card-img-overlay">
+                                <ul class="list-inline position-relative text-center">
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-facebook"></i></a></li>
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-twitter"></i></a></li>
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-instagram"></i></a></li>
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-behance"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-7 bg-white">
+                            <div class="p-4">
+                                <h6 class="mb-3">Martín De Francesco - Backend Developer</h6>
+                                <p>Engineering and Programming student at the same time and has deep knowledges in all areas.</p>
+                                <div class="col-md-12 text-center">
+                                    <ul class="social-network social-circle">
+                                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#" class="icoJoomla" title="Joomla"><i class="fa fa-joomla"></i></a></li>
+                                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- Row -->
+                </div>
+            </div> <!-- column  -->
+        </div>
+
+        <!--Mauri-->
+        <div class="row">
+            <!-- column  -->
+            <div class="col-lg-6">
+                <div class="card card-shadow border-0 mb-4">
+                    <!-- Row -->
+                    <div class="row no-gutters shadow">
+                        <div class="col-md-5 pro-pic" style="background:url(View/images/mauri.jpg) center center no-repeat">
+                            <div class="card-img-overlay">
+                                <ul class="list-inline position-relative text-center">
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-facebook"></i></a></li>
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-twitter"></i></a></li>
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-instagram"></i></a></li>
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-behance"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-7 bg-white">
+                            <div class="p-4">
+                                <h6 class="mb-3">Mauricio Percovich - DevOps</h6>
+                                <p>Good with numbers, used to study economy and likes challenges. Very interested in systems administration.
+                                </p>
+                                <div class="col-md-12 text-center">
+                                    <ul class="social-network social-circle">
+                                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#" class="icoJoomla" title="Joomla"><i class="fa fa-joomla"></i></a></li>
+                                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- Row -->
+                </div>
+            </div> <!-- column  -->
+
+            <!--Ezequiel-->
+            <div class="col-lg-6">
+                <div class="card shadow mb-4">
+                    <!-- Row -->
+                    <div class="row no-gutters card-shadow">
+                        <div class="col-md-5 pro-pic" style="background:url(View/images/eze.jpeg) center center no-repeat">
+                            <div class="card-img-overlay">
+                                <ul class="list-inline position-relative text-center">
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-facebook"></i></a></li>
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-twitter"></i></a></li>
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-instagram"></i></a></li>
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-behance"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-7 bg-white">
+                            <div class="p-4">
+                                <h6 class="mb-3">Ezequiel Aldabalde - Frontend</h6>
+                                <p>Young student that is looking forward to learning new technologies, specially those related
+                                    with web design.
+                                </p>
+                                <div class="col-md-12 text-center">
+                                    <ul class="social-network social-circle">
+                                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#" class="icoJoomla" title="Joomla"><i class="fa fa-joomla"></i></a></li>
+                                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- Row -->
+                </div>
+            </div> <!-- column  -->
+            <div class="col-lg-6">
+
+
+
+                <!--Ale Reginesi-->
+                <div class="card shadow mb-4">
+                    <!-- Row -->
+                    <div class="row no-gutters card-shadow">
+                        <div class="col-md-5 pro-pic" width="200px" style="background:url(View/images/ale.jpg) center center no-repeat">
+                            <div class="card-img-overlay">
+                                <ul class="list-inline position-relative text-center">
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-facebook"></i></a></li>
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-twitter"></i></a></li>
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-instagram"></i></a></li>
+                                    <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-behance"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-7 bg-white">
+                            <div class="p-4">
+                                <h6 class="mb-3">Ale Reginesi - Frontend</h6>
+                                <p>Student with very little experience in the industry,
+                                the only one of the team really interested in frontend development.
+                                </p>
+                                <div class="col-md-12 text-center">
+                                    <ul class="social-network social-circle">
+                                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#" class="icoJoomla" title="Joomla"><i class="fa fa-joomla"></i></a></li>
+                                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- Row -->
+                </div>
+            </div> <!-- column  -->
+        </div>
+    </div>
 </div>
 
-<main class="flex-shrink-0">
-  <div class="container">
-    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquet eget sit amet tellus cras adipiscing enim eu. Quis risus sed vulputate odio ut enim blandit. Amet est placerat in egestas erat imperdiet. Scelerisque fermentum dui faucibus in ornare quam. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. Sed lectus vestibulum mattis ullamcorper. Ultrices neque ornare aenean euismod elementum nisi quis. </p>
-  </div>
-</main>
+
 
 <footer class="footer mt-auto py-3 footer">
-  <div class="container">
-    <span class="text">The best options at the lowest prices</span>
+  <div class="container-fluid">
+    <span class="text">Speed up and make bidding process easier.</span>
   </div>
 </footer>
 
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="View/js/bootstrap.bundle.min.js"></script>
+    <script src="View/js/bootstrap.bundle.min.js"></script>
+
 
   </body>
-</html>
