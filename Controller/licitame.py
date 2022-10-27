@@ -108,7 +108,7 @@ class RegisterForm(FlaskForm):
     CompanyName = StringField(validators=[
                            InputRequired(),
                            Length(min=2, max=45)],
-                           render_kw={"placeholder": "CompanyName"})
+                           render_kw={"placeholder": "Name"})
     RUT = StringField(validators=[
                            InputRequired(),
                            Length(min=12, max=12)],
@@ -120,28 +120,28 @@ class RegisterForm(FlaskForm):
     CompanyAddress = StringField(validators=[
                            InputRequired(),
                            Length(min=4, max=45)],
-                           render_kw={"placeholder": "CompanyAddress"})
+                           render_kw={"placeholder": "Address"})
     CompanyState = StringField(validators=[
                            InputRequired(),
                            Length(min=4, max=45)],
-                           render_kw={"placeholder": "CompanyState"})
+                           render_kw={"placeholder": "State"})
     CompanyCity = StringField(validators=[
                            InputRequired(),
                            Length(min=4, max=45)],
-                           render_kw={"placeholder": "CompanyCity"})
+                           render_kw={"placeholder": "City"})
     CompanyPhone = StringField(validators=[
                            InputRequired(),
                            Length(min=4, max=20)],
-                           render_kw={"placeholder": "CompanyPhone"})
+                           render_kw={"placeholder": "Company phone"})
     #User
     CustomerName = StringField(validators=[
                            InputRequired(),
                            Length(min=3, max=45)],
-                           render_kw={"placeholder": "CustomerName"})
+                           render_kw={"placeholder": "First Name"})
     CustomerLastName = StringField(validators=[
                            InputRequired(),
                            Length(min=3, max=45)],
-                           render_kw={"placeholder": "CustomerLastName"})
+                           render_kw={"placeholder": "Last Name"})
     Phone = StringField(validators=[
                            InputRequired(),
                            Length(min=4, max=20)],
@@ -154,28 +154,29 @@ class RegisterForm(FlaskForm):
     Confirm  = PasswordField(validators=[
                              InputRequired(),
                              Length(min=8, max=20)],
-                             render_kw={"placeholder": "Repeat Password"})
+                             render_kw={"placeholder": "Confirm Password"})
     Email = StringField(validators=[
                            InputRequired(),
                            Length(min=4, max=45)],
                            render_kw={"placeholder": "Email"})
-    Birthdate = StringField(validators=[
-                           InputRequired(),
-                           Length(min=4, max=45)],
-                           render_kw={"placeholder": "Birthdate"})
-    Address = StringField(validators=[
-                           InputRequired(),
-                           Length(min=4, max=45)],
-                           render_kw={"placeholder": "Address"})
-    State = StringField(validators=[
-                           InputRequired(),
-                           Length(min=4, max=45)],
-                           render_kw={"placeholder": "State"})
-    City = StringField(validators=[
-                           InputRequired(),
-                           Length(min=4, max=45)],
-                           render_kw={"placeholder": "City"})
-    submit = SubmitField('sign_up')
+# Not added to the form
+#    Birthdate = StringField(validators=[
+#                           InputRequired(),
+#                           Length(min=4, max=45)],
+#                           render_kw={"placeholder": "Birthdate"})
+#    Address = StringField(validators=[
+#                           InputRequired(),
+#                           Length(min=4, max=45)],
+#                           render_kw={"placeholder": "Address"})
+#    State = StringField(validators=[
+#                           InputRequired(),
+#                           Length(min=4, max=45)],
+#                           render_kw={"placeholder": "State"})
+#    City = StringField(validators=[
+#                           InputRequired(),
+#                           Length(min=4, max=45)],
+#                           render_kw={"placeholder": "City"})
+    submit = SubmitField('sign up')
 
 def add_relationship(self, RUT):
     existing_Company_RUT = Company.query.filter_by(RUT=RUT.data).first()
