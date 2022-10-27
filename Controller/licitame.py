@@ -287,9 +287,6 @@ def home():
 @login_required
 def my_requests():
     requests = Request.query.filter_by(id=current_user.id).all()
-    print(f'test before current user id:{current_user.id}')
-    for req in requests:
-        print(f'Id{req.RequestId}, Title{req.Title}, Desc{req.Description}')
     return render_template('home.html', requests=requests)
 
 @app.route("/logout")
@@ -349,7 +346,8 @@ def request_by(request_id):
 def download_bid(bid_id):
     bid = Bid.query.filter_by(BidId=bid_id).first()
     if request.method == 'POST':
-        return send_from_directory(app.config['UPLOAD_FOLDER'], bid.FileId)
+        uploads = os.path.join(current_app.root_path, app.config['UPLOAD_FOLDER'])
+        return send_from_directory(directory=uploads, filename=bid.FileId)
     return redirect(url_for('home'))
 
 @app.route('/create_bid/<int:request_id>', methods=['GET', 'POST'], strict_slashes=False)
