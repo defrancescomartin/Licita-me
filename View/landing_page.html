@@ -36,7 +36,7 @@
                     Here you we'll be able to stablish the requirements for the job you want to be done!</p>
              </div>
              <div class="card-footer py-4">
-                <a href="#" class="btn btn-secondary">Go to request page &raquo;</a>
+                <a href="{{ url_for('home') }}" class="btn btn-secondary">Go to request page &raquo;</a>
              </div>
           </div>
        </div>
@@ -50,7 +50,7 @@
                     Here you can see the current projects available, elaborate a budget, and make an offer to the requestant!</p>
              </div>
              <div class="card-footer py-4">
-                <a href="#" class="btn btn-secondary">Start the process &raquo;</a>
+                <a href="{{ url_for('create_request') }}" class="btn btn-secondary">Start the process &raquo;</a>
              </div>
           </div>
        </div>
@@ -65,7 +65,7 @@
                 </p>
              </div>
              <div class="card-footer py-4">
-                <a href="#" class="btn btn-secondary">Go to your requests &raquo;</a>
+                <a href="{{ url_for('my_requests') }}" class="btn btn-secondary">Go to your requests &raquo;</a>
              </div>
           </div>
        </div>
