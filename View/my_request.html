@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Licita-Me</title>
+	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/my_request.css') }}" rel="stylesheet">
+  </head>
+  <body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="check" viewBox="0 0 16 16">
+    <title>Licita-Me</title>
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+</svg>
+
+<div class="container py-3">
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('home') }}"><img class="headerlogo" src="{{ url_for('static', filename='images/logo3prueba.png') }}" alt=""></a>
+      </header>
+
+  <main>
+    <div class="text-center p-5 m-5">
+      <h1 class="display-4 fw-normal">{{ req.Title }}</h1>
+      <p class="fs-5 text-muted">Brief description of the project:
+        {{ req.Description }}
+      </p>
+    </div>
+	{% if not bids %}
+	  <h4 class="my-0 fw-normal">Not Bids found</h4>
+	{%endif%}
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+	{%for bid in bids %}
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+          <div class="card-header py-3 text-bg-primary border-primary">
+            <h4 class="my-0 fw-normal">company Name</h4>
+            <h5 class="small">Bid n: {{bid.BidId}}</h5>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">Total amount: {% if  bid.CurrencyCode == 1 %}US${% else %}U${% endif %} {{ bid.TotalAmount }}</h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Start date: {{ bid.StartingDate }}</li>
+              <li>End date: {{ bid.FinishDate }}</li>
+            </ul>
+            <div class="mb-4">
+				<form method="post" action="{{ url_for('download_bid', bid_id=bid.BidId) }}">
+		          <button class="btn btn-primary btn-lg px-4" type="submit">Download file</button>
+		        </form>
+            </div>
+            <button type="button" class="w-100 btn btn-lg btn-primary">Contact</button>
+            <button type="button" class="w-100 btn btn-lg btn-primary mt-3">Accept</button>
+          </div>
+        </div>
+      </div>
+	  {%endfor%}
+    </div>
+	<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+  </body>
+</html>
