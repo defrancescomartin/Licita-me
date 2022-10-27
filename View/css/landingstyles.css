@@ -148,7 +148,7 @@ a.socialIcon:hover,
     transition: all 0.8s;
 }
 
-a {
+a .social-circle {
     background-color: #D3D3D3;
 }
 
