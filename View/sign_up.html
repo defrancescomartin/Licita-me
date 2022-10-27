@@ -11,26 +11,22 @@
     <link rel="stylesheet" href="View/css/signup.css">
   </head>
   <body class="h-100 gradient-custom">
+	  <header>
+		  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		  <div class="container-fluid">
+			<img class="headerlogo" src="View/images/logo3prueba.png" alt="" width="200px">
+		  <div class="box">
+			  {% if current_user.is_authenticated %}
+				 <a href="{{ url_for('logout') }}"><button class="btn btn-outline-success buttons2" type="button">Sign out</button></a>
+			  {% else %}
+				<a href="{{ url_for('signin') }}"><button class="btn btn-outline-success buttons2" type="button">Sign in</button></a>
+			  {% endif %}
+		  </div>
+			</div>
+		  </div>
+		</nav>
+	  </header>
     <section class="vh-100" style="background-color: #66102030;">
-
-    <form action="sign_up" method="post">
-      <div class="fluid">
-        <header>
-			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-		    <div class="container-fluid">
-		      <img class="headerlogo" src="View/images/logo3prueba.png" alt="" width="200px">
-		    <div class="box">
-				{% if current_user.is_authenticated %}
-				   <a href="{{ url_for('logout') }}"><button class="btn btn-outline-success buttons2" type="button">Sign out</button></a>
-				{% else %}
-		          <a href="{{ url_for('signin') }}"><button class="btn btn-outline-success buttons2" type="button">Sign in</button></a>
-				{% endif %}
-		    </div>
-		      </div>
-		    </div>
-		  </nav>
-        </header>
-      </div>
 
 <section class="h-100 h-custom gradient-custom-2">
   <form method="post" action="">
