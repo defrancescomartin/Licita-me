@@ -23,7 +23,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Adding a secret key
 app.config['SECRET_KEY']='Pass2022'
 # Config the pool for uploads
-app.config['UPLOAD_FOLDER']='./pool'
+app.config['UPLOAD_FOLDER']='uploads'
 # Config max upload file size to 10MB
 app.config['MAX_CONTENT_PATH']= 1024*1024*10
 # Create the database instance
