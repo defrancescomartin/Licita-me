@@ -259,6 +259,8 @@ def signin():
 
 @app.route('/sign_up', methods=['GET', 'POST'], strict_slashes=False)
 def sign_up():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
     form = RegisterForm()
     # The code for registration
     if form.validate_on_submit():
