@@ -208,7 +208,7 @@ class RequestForm(FlaskForm):
     Category = StringField(validators=[InputRequired(),
                                      Length(min=3, max=45)],
                                      render_kw={"placeholder": "Category"})
-    FinishDate = DateField('Finish Date', format='%Y-%m-%d' )
+    FinishDate = DateField('Finish Date', format='%Y-%m-%d')
     files = FileField(validators=[FileRequired()],
                                      render_kw={"placeholder": "FileUpload"})
     submit = SubmitField('Create request')
@@ -217,12 +217,8 @@ class RequestForm(FlaskForm):
 # Create Bid Form validators
 class BidForm(FlaskForm):
 
-    StartingDate = StringField(validators=[InputRequired(),
-                                     Length(min=9, max=11)],
-                                     render_kw={"placeholder": "StartingDate"})
-    FinishDate = StringField(validators=[InputRequired(),
-                                     Length(min=9, max=11)],
-                                     render_kw={"placeholder": "FinishDate"})
+    StartingDate = DateField('Starting Date', format='%Y-%m-%d')
+    FinishDate = DateField('Finish Date', format='%Y-%m-%d')
     CurrencyCode = StringField(validators=[InputRequired(),
                                      Length(min=1, max=1)],
                                      render_kw={"placeholder": "Currency"})
