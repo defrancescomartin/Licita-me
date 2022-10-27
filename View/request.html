@@ -2,26 +2,31 @@
 <html lang="en">
   <head>
     <title>Licita-Me</title>
-
-
-<link href="View/css/bootstrap.min.css" rel="stylesheet">
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="View/css/bootstrap.min.css" rel="stylesheet">
     <link href="View/css/request.css" rel="stylesheet">
-
   </head>
-  <body class="text-center align-middle">
+  <body class="text-center align-middle gradient-custom">
+	  <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{{ url_for('home') }}"><img class="headerlogo" src="View/images/logo3prueba.png" alt=""></a>
+          </div>
+      </nav>
+    </header>
 
 <main class="form-request m-auto d-flex align-middle">
  <form method="POST" enctype="multipart/form-data">
 	 {{ form.hidden_tag() }}
-    <img class="mb-4" src="View/images/logo11.png" alt="" width="200" height="200">
+    <img class="mb-4" src="View/images/requestpic.png" alt="Reqest png" width="200" height="200">
     <h1 class="h3 mb-3 fw-normal">Create Your Request</h1>
-
+	<h5>Title:</h5>
     <div class="form-floating">
      <!-- <input type="text" class="form-control" id="floatingInput" placeholder="Project title" required> -->
 	  {{ form.Title(class_="form-control") }}
-    </div>
 
+    <h5>Category:</h5>
     <div class="form-floating">
         <!-- <select name="categoria" id="categoria" placeholder="Category" class="form-control" required>
             <option value="1">Obra Civil</option>
@@ -32,19 +37,28 @@
         </select>-->
 		{{ form.Category(class_="form-control") }}
     </div>
-
-    <div class="form-floating">
-<!--    <input type="text" placeholder="Deadline" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" required/>-->
-	{{ form.FinishDate(class_="form-control") }}
-    </div>
-
+	<div class="row form-group form-floating">
+	  <h5>End date:</h5>
+	<div class="datepicker-bid">
+		<div class="input-group date" id="datepicker2">
+			<!--<input type="text" class="form-control">-->
+			{{ form.FinishDate(class_="form-control") }}
+			<span class="input-group-append">
+				<span class="input-group-text bg-white d-block">
+				   <i class="fa fa-calendar"></i>
+					</span>
+				</span>
+			</div>
+		</div>
+	</div>
+    <h5>Description:</h5>
     <div class="comment">
 <!--	<label for="comment">Project description:</label>
         <textarea class="form-control" rows="4" id="comment" required>
 	</textarea>-->
 	{{ form.Description(class_="form-control") }}
       </div>
-
+      <h5>File upload</h5>
       <div class="form-floating">
 		  {{ form.files(class_="form-control") }}
 <!--<input type="file" placeholder="File upload" name="adjunto" accept="application/pdf, .doc, .docx" multiple required/>-->
@@ -53,6 +67,7 @@
     <!--<button class="w-100 btn btn-lg btn-primary btn-ale" type="submit">Create</button>-->
 	{{ form.submit(class_="w-100 btn btn-lg btn-primary btn-ale") }}
     <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+
   </form>
 </main>
 <script src="View/js/bootstrap.bundle.min.js"></script>
