@@ -206,7 +206,7 @@ class RequestForm(FlaskForm):
                                      render_kw={"placeholder": "Title"})
     Description = StringField(validators=[InputRequired(),
                                      Length(min=3, max=64000)],
-                                     render_kw={"placeholder": "Description"})
+                                     render_kw={"placeholder": "Description", "id":"Desc"})
     Category = StringField(validators=[InputRequired(),
                                      Length(min=3, max=45)],
                                      render_kw={"placeholder": "Category"})
