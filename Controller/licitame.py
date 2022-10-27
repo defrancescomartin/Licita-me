@@ -9,7 +9,7 @@ from flask_login import UserMixin, login_user, LoginManager, login_required, log
 from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired
-from wtforms import StringField, PasswordField, SubmitField, FileField, DateField, TextAreaField
+from wtforms import StringField, PasswordField, SubmitField, FileField, DateField, TextAreaField, SelectField
 from wtforms.validators import InputRequired, Length, ValidationError, EqualTo
 from datetime import datetime
 import os
@@ -37,6 +37,17 @@ bcrypt = Bcrypt(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'signin'
+
+#Selection options (must add a new tables fof this - reserved for the future )
+currencies = [('1', 'US$'), ('2', 'U$')]
+categories = [('Carpentry', 'Carpentry'),
+              ('Civil Engineering', 'Civil Engineering'),
+              ('Civil work', 'Civil work'),
+              ('Electrical Engineering', 'Electrical Engineering'),
+              ('Electronic security', 'Electronic security'),
+              ('Glassware', 'Glassware'),
+              ('Plumbing', 'Plumbing'),
+              ('Telecom Engineering', 'Telecom Engineering'),]
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -205,9 +216,7 @@ class RequestForm(FlaskForm):
                                      Length(min=3, max=45)],
                                      render_kw={"placeholder": "Title"})
     Description = TextAreaField()
-    Category = StringField(validators=[InputRequired(),
-                                     Length(min=3, max=45)],
-                                     render_kw={"placeholder": "Category"})
+    Category = SelectField(u'What You Want', choices=currencies, validators=[InputRequired()])
     FinishDate = DateField('Finish Date', format='%Y-%m-%d')
     files = FileField(validators=[FileRequired()],
                                      render_kw={"placeholder": "FileUpload"})
@@ -219,9 +228,7 @@ class BidForm(FlaskForm):
 
     StartingDate = DateField('Starting Date', format='%Y-%m-%d')
     FinishDate = DateField('Finish Date', format='%Y-%m-%d')
-    CurrencyCode = StringField(validators=[InputRequired(),
-                                     Length(min=1, max=1)],
-                                     render_kw={"placeholder": "Currency"})
+    CurrencyCode = SelectField(u'$', choices=currencies, validators=[InputRequired()])
     TotalAmount = StringField(validators=[InputRequired(),
                                      Length(min=1, max=15)],
                                      render_kw={"placeholder": "TotalAmount"})
