@@ -169,11 +169,11 @@ footer mt-auto py-3 footer{
 
 .gradient-custom {
     /* fallback for old browsers */
-    background: #6a85b6;
+    background: #888a85;
 
     /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(106,133,182,0.5), rgba(186,200,224,0.5));
+    background: -webkit-linear-gradient(to right, rgba(136,138,133,0.5), rgba(211,215,207,0.5));
 
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(106,133,182,0.5), rgba(186,200,224,0.5))
+    background: linear-gradient(to right, rgba(136,138,133,0.5), rgba(211,215,207,0.5))
   }
