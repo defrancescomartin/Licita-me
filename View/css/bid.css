@@ -5,10 +5,9 @@ body {
 }
 
 .form-signin {
-  max-width: 330px;
+  max-width: 400px;
   padding: 15px;
   color: rgb(0, 0, 0);
-  padding-top: 100px;
 }
 
 .form-signin .form-floating:focus-within {

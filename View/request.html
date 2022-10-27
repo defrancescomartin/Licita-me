@@ -21,14 +21,12 @@
 <main class="form-signin m-auto d-flex align-middle">
  <form method="POST" enctype="multipart/form-data">
 	 {{ form.hidden_tag() }}
-    <img class="mb-4" src="View/images/requestpic.png" alt="Reqest png" width="200" height="200">
+    <img class="mb-4" src="View/images/requestpic.png" alt="Reqest png" width="150" height="150">
     <h1 class="h3 mb-3 fw-normal">Create Your Request</h1>
-	<h5>Title:</h5>
     <div class="form-floating">
      <!-- <input type="text" class="form-control" id="floatingInput" placeholder="Project title" required> -->
 	  {{ form.Title(class_="form-control") }}
-
-    <h5>Category:</h5>
+	  <label for="{{ form.Title.id }}">Title</label>
     <div class="form-floating">
         <!-- <select name="categoria" id="categoria" placeholder="Category" class="form-control" required>
             <option value="1">Obra Civil</option>
@@ -38,13 +36,14 @@
             <option value="5">Ingeniería</option>
         </select>-->
 		{{ form.Category(class_="form-control") }}
+		<label for="{{ form.Category.id }}">Category selection</label>
     </div>
 	<div class="row form-group form-floating">
-	  <h5>End date:</h5>
 	<div class="datepicker-bid">
 		<div class="input-group date" id="datepicker2">
 			<!--<input type="text" class="form-control">-->
 			{{ form.FinishDate(class_="form-control") }}
+			<label for="{{ form.FinishDate.id }}">Expiration date</label>
 			<span class="input-group-append">
 				<span class="input-group-text bg-white d-block">
 				   <i class="fa fa-calendar"></i>
@@ -53,15 +52,12 @@
 			</div>
 		</div>
 	</div>
-    <h5>Description:</h5>
     <div class="comment">
-<!--	<label for="comment">Project description:</label>
-        <textarea class="form-control" rows="4" id="comment" required>
-	-->
-	{{ form.Description(class_="form-control",rows="4") }}
-      <h5>File upload</h5>
+	  {{ form.Description(class_="form-control",rows="4") }}
+	</div>
       <div class="form-floating">
-		  {{ form.files(class_="form-control") }}
+		  {{ form.files(class_="form-control",accept="application/pdf") }}
+		  <label for="{{ form.files.id }}">Technical requirements</label>
 <!--<input type="file" placeholder="File upload" name="adjunto" accept="application/pdf, .doc, .docx" multiple required/>-->
       </div>
 
