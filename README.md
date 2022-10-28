@@ -1,6 +1,6 @@
 # HOLBERTON SCHOOL MVP
 
-## Licita-me ![Licita-me_logo](/View/images/licitamelogogris.png)
+## ![Licita-me_logo](/View/images/licitamelogogris.png)
 ### Speed up and make bidding process easier
 
 
