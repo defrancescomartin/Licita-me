@@ -24,7 +24,7 @@
 	  {{ form.hidden_tag() }}
 	<img class="mb-4" src="View/images/offerpic.png" alt="Bid png" width="150" height="150">
 	<h1 class="h3 mb-3 fw-normal">Create Your Offer</h1>
-	<label for="{{ form.StartingDate.id }}">Valid from</label>
+	<label for="{{ form.StartingDate.id }}" class="form-label">Valid from</label>
     <div class="row form-group form-floating">
     <div class="datepicker-bid">
         <div class="input-group date" id="datepicker">
@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-	<label for="{{ form.FinishDate.id }}">Expiration date</label>
+	<label for="{{ form.FinishDate.id }}" class="form-label">Expiration date</label>
     <div class="row form-group form-floating">
     <div class="datepicker-bid">
         <div class="input-group date" id="datepicker2">
@@ -52,7 +52,7 @@
             </div>
         </div>
     </div>
-	<label for="{{ form.TotalAmount.id }}">Total amount</label>
+	<label for="{{ form.TotalAmount.id }}" class="form-label">Total amount</label>
     <div class="input-group">
 		{{ form.CurrencyCode(class_="form-select") }}
       <!--<select class="form-select" id="inputGroupSelect01">-->
@@ -63,7 +63,7 @@
 	  {{ form.TotalAmount(class_="form-select") }}
       <!--<input type="text" class="form-control" aria-label="Text input with dropdown button">-->
     </div>
-	<label for="{{ form.files.id }}">Upload your offer</label>
+	<label for="{{ form.files.id }}" class="form-label">Upload your offer</label>
     <div class="mb-3 m-4">
 		{{ form.files(class_="form-control form-control-sm") }}
       <!--<input class="form-control form-control-sm" id="formFileSm" type="file">-->

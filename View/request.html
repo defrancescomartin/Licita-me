@@ -27,7 +27,7 @@
     <div class="form-floating">
 	  {{ form.Title(class_="form-control") }}
 	 </div>
-	  <label for="{{ form.Category.id }}">Category selection</label>
+	  <label for="{{ form.Category.id }}" class="form-label">Category selection</label>
     <div class="form-floating">
         <!-- <select name="categoria" id="categoria" placeholder="Category" class="form-control" required>
             <option value="1">Obra Civil</option>
@@ -38,7 +38,7 @@
         </select>-->
 		{{ form.Category(class_="form-control") }}
     </div>
-	<label for="{{ form.FinishDate.id }}">Expiration date</label>
+	<label for="{{ form.FinishDate.id }}" class="form-label">Expiration date</label>
 	<div class="row form-group form-floating">
 	<div class="datepicker-bid">
 		<div class="input-group date" id="datepicker2">
@@ -53,11 +53,11 @@
 
 		</div>
 	</div>
-	<label for="{{ form.Description.id }}">General description</label>
+	<label for="{{ form.Description.id }}" class="form-label">General description</label>
     <div class="comment">
 	  {{ form.Description(class_="form-control",rows="4") }}
 	</div>
-	<label for="{{ form.files.id }}">Technical requirements</label>
+	<label for="{{ form.files.id }}" class="form-label">Technical requirements</label>
       <div class="form-floating">
 		  {{ form.files(class_="form-control",accept="application/pdf") }}
 <!--<input type="file" placeholder="File upload" name="adjunto" accept="application/pdf, .doc, .docx" multiple required/>-->
