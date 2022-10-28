@@ -6,8 +6,7 @@
 ![Licita-me_logo](/View/images/licitamelogogris.png)
 
 ### Description
-...
-
+Licita-Me is an innovative idea to unify the entire issue of supply and demand for tenders, since today everything is very old and there is no place where everything is centralized, and thanks to this website you can publish your needs and receive proposals that adjust to what you need, in an agile way that is simple and easy to use for anyone
 
 ### Application desing
 ![Tech_infra](/View/images/Estructura.png)
