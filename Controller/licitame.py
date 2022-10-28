@@ -214,12 +214,12 @@ class SigninForm(FlaskForm):
 class RequestForm(FlaskForm):
     Title = StringField(validators=[InputRequired(),
                                      Length(min=3, max=45)],
-                                     render_kw={"placeholder": "Title"})
+                                     render_kw={"placeholder": "Title", "class": "form-select my-forms"})
     Description = TextAreaField()
-    Category = SelectField(u'Category selection', choices=categories, validators=[InputRequired()], render_kw={"class": "form-select"})
+    Category = SelectField(u'Category selection', choices=categories, validators=[InputRequired()], render_kw={"class": "form-select my-forms"})
     FinishDate = DateField('Finish Date', format='%Y-%m-%d')
     files = FileField(validators=[FileRequired()],
-                                     render_kw={"placeholder": "FileUpload"})
+                                     render_kw={"placeholder": "FileUpload", "class": "form-select my-forms"})
     submit = SubmitField('Create request')
 
 
@@ -228,12 +228,12 @@ class BidForm(FlaskForm):
 
     StartingDate = DateField('Starting Date', format='%Y-%m-%d')
     FinishDate = DateField('Finish Date', format='%Y-%m-%d')
-    CurrencyCode = SelectField(u'$', choices=currencies, validators=[InputRequired()])
+    CurrencyCode = SelectField(u'$', choices=currencies, validators=[InputRequired()], render_kw={"placeholder": "Currency", "class": "my-forms"}))
     TotalAmount = StringField(validators=[InputRequired(),
                                      Length(min=1, max=15)],
-                                     render_kw={"placeholder": "TotalAmount"})
+                                     render_kw={"placeholder": "TotalAmount", "class": "my-forms"})
     files = FileField(validators=[FileRequired()],
-                                     render_kw={"placeholder": "FileUpload"})
+                                     render_kw={"placeholder": "FileUpload", "class": "my-forms"})
     submit = SubmitField('Create bid')
 
 

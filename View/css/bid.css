@@ -32,25 +32,12 @@ body {
     -moz-user-select: none;
     user-select: none;
   }
-  .form-floating > .form-select {
-	  padding-top: 10px;
-      padding-bottom: 10px;
-  }
-.form-floating > .form-control, .form-floating > .form-control-plaintext {
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
 
-.form-floating > .form-control:not(:placeholder-shown) {
+.my-forms {
 	padding-top: 10px;
 	padding-bottom: 10px;
-}
-.form-floating > .form-control, .form-floating > .form-control-plaintext, .form-floating > .form-select {
 	height: auto;
 }
-.select {
-	  height: auto;
-  }
   .gradient-custom {
   	/* fallback for old browsers */
   	background: #888a85;
