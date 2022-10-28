@@ -1,18 +1,17 @@
 # HOLBERTON SCHOOL MVP
 
-## Licita-me
+## Licita-me ![Licita-me_logo](/View/images/licitamelogogris.png)
 ### Speed up and make bidding process easier
 
-![Licita-me_logo](/View/images/licitamelogogris.png)
 
-### Description
+### Description 📝
 Licita-Me is an innovative idea to unify the entire issue of supply and demand for tenders, since today everything is very old and there is no place where everything is centralized, and thanks to this website you can publish your needs and receive proposals that adjust to what you need, in an agile way that is simple and easy to use for anyone
 
-### Application desing
+### Application desing 💻
 ![Tech_infra](/View/images/Estructura.png)
 
 
-### Supported Features
+### Supported Features 🔛
 * Sign Up and Sign In correctly
 * Create a Request
 * Create a Bid
@@ -20,14 +19,14 @@ Licita-Me is an innovative idea to unify the entire issue of supply and demand f
 * Sign Out
 
 
-### Future Features
+### Future Features 🔜
 * Notificate when a Bid is done
 * Edit your Bids
 * Edit your profile
 * Filter by your needs
 
 
-### Tech Stack
+### Tech Stack 🛠
 **FrontEnd:**
 * HTML
 * CSS
@@ -44,7 +43,7 @@ Licita-Me is an innovative idea to unify the entire issue of supply and demand f
 * HAProxy
 * NginX
 
-### Team Members
+### Team Members 👨‍💻
 * Sebastian Freire (Back-end & Devops)
 * Martín De Francesco (Back-end)
 * Alejandro Reginensi (Front-end & UI)
