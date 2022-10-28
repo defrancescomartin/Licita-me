@@ -45,6 +45,7 @@ categories = [('Carpentry', 'Carpentry'),
               ('Civil work', 'Civil work'),
               ('Electrical Engineering', 'Electrical Engineering'),
               ('Electronic security', 'Electronic security'),
+              ('Furniture', 'Furniture'),
               ('Glassware', 'Glassware'),
               ('Plumbing', 'Plumbing'),
               ('Telecom Engineering', 'Telecom Engineering'),]
