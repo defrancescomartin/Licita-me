@@ -228,7 +228,7 @@ class BidForm(FlaskForm):
 
     StartingDate = DateField('Starting Date', format='%Y-%m-%d')
     FinishDate = DateField('Finish Date', format='%Y-%m-%d')
-    CurrencyCode = SelectField(u'$', choices=currencies, validators=[InputRequired()], render_kw={"placeholder": "Currency", "class": "my-forms"}))
+    CurrencyCode = SelectField(u'$', choices=currencies, validators=[InputRequired()], render_kw={"placeholder": "Currency", "class": "my-forms"})
     TotalAmount = StringField(validators=[InputRequired(),
                                      Length(min=1, max=15)],
                                      render_kw={"placeholder": "TotalAmount", "class": "my-forms"})
