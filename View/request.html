@@ -24,20 +24,9 @@
     <img class="mb-4" src="View/images/requestpic.png" alt="Reqest png" width="150" height="150">
     <h1 class="h3 mb-3 fw-normal">Create Your Request</h1>
 	<label for="{{ form.Title.id }}" class="form-label">Title</label>
-    <div class="form-floating">
 	  {{ form.Title(class_="form-control") }}
-	 </div>
 	  <label for="{{ form.Category.id }}" class="form-label">Category selection</label>
-    <div class="form-floating">
-        <!-- <select name="categoria" id="categoria" placeholder="Category" class="form-control" required>
-            <option value="1">Obra Civil</option>
-            <option value="2">Carpintería</option>
-            <option value="3">Electrica</option>
-            <option value="4">Sanitaria</option>
-            <option value="5">Ingeniería</option>
-        </select>-->
 		{{ form.Category(class_="form-select") }}
-    </div>
 	<label for="{{ form.FinishDate.id }}" class="form-label">Expiration date</label>
 	<div class="row form-group form-floating">
 	<div class="datepicker-bid">
@@ -54,14 +43,12 @@
 		</div>
 	</div>
 	<label for="{{ form.Description.id }}" class="form-label">General description</label>
-    <div class="comment">
 	  {{ form.Description(class_="form-control",rows="4") }}
+	<label for="{{ form.files.id }}" class="form-label">Upload your Technical requirements</label>
+	<div class="mb-3 m-4">
+	  {{ form.files(class_="form-control form-control-sm") }}
+	  <!--<input class="form-control form-control-sm" id="formFileSm" type="file">-->
 	</div>
-	<label for="{{ form.files.id }}" class="form-label">Technical requirements</label>
-      <div class="form-floating">
-		  {{ form.files(class_="form-control",accept="application/pdf") }}
-<!--<input type="file" placeholder="File upload" name="adjunto" accept="application/pdf, .doc, .docx" multiple required/>-->
-      </div>
 
     <!--<button class="w-100 btn btn-lg btn-primary btn-ale" type="submit">Create</button>-->
 	{{ form.submit(class_="w-100 btn btn-lg btn-primary btn-ale") }}
