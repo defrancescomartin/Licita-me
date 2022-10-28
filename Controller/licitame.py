@@ -309,7 +309,8 @@ def create_request():
     # The code to insert new request
     if form.validate_on_submit():
         f = form.files.data
-        f.save(secure_filename(f.filename))
+        filename = secure_filename(f.filename)
+        f.save(os.path.join(current_app.root_path, app.config['UPLOAD_FOLDER'], filename))
         new_request = Request(id=current_user.id,
                               CompanyId=current_user.CompanyId,
                               StatusCode=0,
@@ -359,7 +360,8 @@ def create_bid(request_id):
     # The code to insert new request
     if form.validate_on_submit():
         f = form.files.data
-        f.save(secure_filename(f.filename))
+        filename = secure_filename(f.filename)
+        f.save(os.path.join(current_app.root_path, app.config['UPLOAD_FOLDER'], filename))
         new_bid = Bid(id=current_user.id,
                       CompanyId=current_user.CompanyId,
                       StatusCode=0,
