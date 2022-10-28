@@ -216,7 +216,7 @@ class RequestForm(FlaskForm):
                                      Length(min=3, max=45)],
                                      render_kw={"placeholder": "Title"})
     Description = TextAreaField()
-    Category = SelectField(u'What You Want', choices=categories, validators=[InputRequired()])
+    Category = SelectField(u'Category selection', choices=categories, validators=[InputRequired()])
     FinishDate = DateField('Finish Date', format='%Y-%m-%d')
     files = FileField(validators=[FileRequired()],
                                      render_kw={"placeholder": "FileUpload"})
