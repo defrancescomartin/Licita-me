@@ -1,7 +1,7 @@
 html,
 body {
   height: 100%;
-  padding-top: 60px;
+  padding-top: 20px;
 }
 
 .form-signin {
@@ -31,6 +31,11 @@ body {
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
+  }
+  .form-floating {
+	  padding: .375rem 2.25rem .375rem .75rem;
+	  height: auto;
+	  line-height: normal;
   }
 
   .gradient-custom {
