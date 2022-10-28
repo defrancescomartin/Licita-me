@@ -34,8 +34,6 @@ body {
   }
   .form-floating {
 	  padding: .375rem 2.25rem .375rem .75rem;
-	  height: auto;
-	  line-height: normal;
   }
 
   .gradient-custom {
