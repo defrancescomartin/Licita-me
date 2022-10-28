@@ -32,9 +32,6 @@ body {
     -moz-user-select: none;
     user-select: none;
   }
-  .form-floating {
-	  padding: .375rem 2.25rem .375rem .75rem;
-  }
 
   .gradient-custom {
   	/* fallback for old browsers */
