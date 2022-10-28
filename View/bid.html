@@ -22,7 +22,7 @@
 <main class="form-signin m-auto d-flex align-middle">
   <form method="post" enctype="multipart/form-data">
 	  {{ form.hidden_tag() }}
-	<img class="mb-4" src="View/images/offerpic.png" alt="Bid png" width="150" height="150">
+	<img class="mb-4" src="{{ url_for('static', filename='images/offerpic.png') }}" alt="Bid png" width="150" height="150">
 	<h1 class="h3 mb-3 fw-normal">Create Your Offer</h1>
 	<label for="{{ form.StartingDate.id }}" class="form-label">Valid from</label>
     <div class="row form-group form-floating">
