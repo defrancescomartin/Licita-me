@@ -14,16 +14,36 @@
 
 
 ### Supported Features
-
+* Sign Up and Sign In correctly
+* Create a Request
+* Create a Bid
+* List your Requests
+* Sign Out
 
 
 ### Future Features
-
+* Notificate when a Bid is done
+* Edit your Bids
+* Edit your profile
+* Filter by your needs
 
 
 ### Tech Stack
+**FrontEnd:**
+* HTML
+* CSS
+* JavaScript
+* BootStrap
 
-
+**BackEnd:**
+* Python
+* Flask
+* Jinja
+* Gunicorn
+* MySQL
+* SQLAlchemy
+* HAProxy
+* NginX
 
 ### Team Members
 * Sebastian Freire (Back-end & Devops)
