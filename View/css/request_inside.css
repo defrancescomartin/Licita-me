@@ -1,6 +1,3 @@
-body {
-  background-color: #66102018;
-}
 .icon-list li::before {
   display: block;
   flex-shrink: 0;
